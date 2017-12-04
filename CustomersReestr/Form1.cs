@@ -19,7 +19,7 @@ namespace CustomersReestr
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Testing Text from Raven");
+            MessageBox.Show("Testing Text from Raven!");
         }
     }
 }
