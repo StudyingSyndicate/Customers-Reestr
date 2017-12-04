@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs/CustomersReestr/v15/Server/sqlite3
+/CustomersReestr/bin/Debug
+/CustomersReestr/obj/Release

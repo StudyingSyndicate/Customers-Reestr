@@ -1,0 +1,9 @@
+F:\Programming\CustomersReestr\CustomersReestr\bin\Debug\CustomersReestr.exe.config
+F:\Programming\CustomersReestr\CustomersReestr\bin\Debug\CustomersReestr.exe
+F:\Programming\CustomersReestr\CustomersReestr\bin\Debug\CustomersReestr.pdb
+F:\Programming\CustomersReestr\CustomersReestr\obj\Debug\CustomersReestr.Form1.resources
+F:\Programming\CustomersReestr\CustomersReestr\obj\Debug\CustomersReestr.Properties.Resources.resources
+F:\Programming\CustomersReestr\CustomersReestr\obj\Debug\CustomersReestr.csproj.GenerateResource.Cache
+F:\Programming\CustomersReestr\CustomersReestr\obj\Debug\CustomersReestr.csproj.CoreCompileInputs.cache
+F:\Programming\CustomersReestr\CustomersReestr\obj\Debug\CustomersReestr.exe
+F:\Programming\CustomersReestr\CustomersReestr\obj\Debug\CustomersReestr.pdb
