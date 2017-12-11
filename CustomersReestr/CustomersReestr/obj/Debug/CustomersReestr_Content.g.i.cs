@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("customers.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("customers_log.ldf")]
 
 
