@@ -5,3 +5,8 @@
 /.vs/CustomersReestr/v15/Server/sqlite3
 /CustomersReestr/bin/Debug
 /CustomersReestr/obj/Release
+/CustomersReestr/.vs/CustomersReestr/v15/Server/sqlite3/db.lock
+/CustomersReestr/.vs/CustomersReestr/v15/Server/sqlite3/storage.ide
+/CustomersReestr/.vs/CustomersReestr/v15/.suo
+/.vs/VSWorkspaceState.json
+/CustomersReestr/CustomersReestr/obj/Debug

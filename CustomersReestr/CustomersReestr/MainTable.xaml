@@ -1,0 +1,43 @@
+﻿<Page x:Class="CustomersReestr.MainTable"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CustomersReestr"
+      mc:Ignorable="d" 
+      d:DesignHeight="282.203" d:DesignWidth="508.475"
+      Title="MainTable">
+
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="262" Margin="10,10,0,0" VerticalAlignment="Top" Width="488">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="36*"/>
+                <RowDefinition Height="209*"/>
+                <RowDefinition Height="17*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="19*"/>
+                <ColumnDefinition Width="103*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="1" Grid.Column="1" Background="White">
+                <DataGrid>
+                
+                </DataGrid>
+            </Border>
+            <Border Grid.Row="1" Background="LightBlue">
+                <Menu/>
+            </Border>
+            <Border Grid.Row="0" Background="LightBlue"/>
+            <Border Grid.Row="0" Grid.Column="1" Background="LightBlue">
+                <TextBox TextWrapping="Wrap" Text="Search" Margin="123,0,77,0"/>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0" Background="LightBlue"/>
+            <Border Grid.Row="2" Grid.Column="1" Background="Gray">
+                <StatusBar/>
+            </Border>
+            <Image HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="55" Source="img.png" Stretch="Fill"/>
+            <Label Content="CuStomersREestr" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="106" RenderTransformOrigin="0.192,0.037" Height="36"/>
+        </Grid>
+
+    </Grid>
+</Page>
