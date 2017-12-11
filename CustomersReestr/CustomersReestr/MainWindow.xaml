@@ -5,6 +5,5 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomersReestr"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Source="MainTable">
-   
+        Title="Реестр покупателей" Height="800" Width="1200" Source="MainTable.xaml">
 </NavigationWindow>

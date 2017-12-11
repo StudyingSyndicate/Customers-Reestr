@@ -24,6 +24,7 @@ namespace CustomersReestr
         public MainTable()
         {
             InitializeComponent();
+            DBUtil.CheckConnection();
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)

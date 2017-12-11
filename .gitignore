@@ -5,4 +5,5 @@
 /.vs/
 /CustomersReestr/bin/Debug;
 /CustomersReestr/obj/Release;
+/CustomersReestr/obj/Debug;
 /CustomersReestr/.vs/CustomersReestr/v15
