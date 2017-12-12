@@ -15,18 +15,11 @@ namespace CustomersReestr
         
         internal static string GetConnectionString()
         {
-             
-            string returnValue = null;
-
-            
             ConnectionStringSettings settings =
-            ConfigurationManager.ConnectionStrings["CustomersReestr.Properties.Settings.CustomersConnectionString"];
+            //ConfigurationManager.ConnectionStrings["CustomersReestr.Properties.Settings.CustomersConnectionString"];
+            ConfigurationManager.ConnectionStrings["CustomersEntities"];
 
-            
-            if (settings != null)
-                returnValue = settings.ConnectionString;
-
-            return returnValue;
+            return settings != null ? settings.ConnectionString : null;
         }
         public static void CheckConnection()
         {
@@ -40,7 +33,8 @@ namespace CustomersReestr
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Can not open connection ! ");
+                MessageBox.Show("Can not open connection ! Error: " + ex.Message);
+                throw ex;
             }
         }
     }
