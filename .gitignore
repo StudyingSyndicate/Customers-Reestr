@@ -3,7 +3,6 @@
 ################################################################################
 
 /.vs/
-/CustomersReestr/bin/Debug;
-/CustomersReestr/obj/Release;
-/CustomersReestr/obj/Debug;
+/CustomersReestr/CustomersReestr/bin
+/CustomersReestr/CustomersReestr/obj
 /CustomersReestr/.vs/CustomersReestr/v15
