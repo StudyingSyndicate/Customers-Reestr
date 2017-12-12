@@ -41,6 +41,14 @@ namespace CustomersReestr {
     public partial class MainTable : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector {
         
         
+        #line 23 "..\..\MainTable.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DataGrid clientsGrid;
+        
+        #line default
+        #line hidden
+        
+        
         #line 27 "..\..\MainTable.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnClientsGrid;
@@ -79,12 +87,7 @@ namespace CustomersReestr {
             switch (connectionId)
             {
             case 1:
-            
-            #line 23 "..\..\MainTable.xaml"
-            ((System.Windows.Controls.DataGrid)(target)).SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.DataGrid_SelectionChanged);
-            
-            #line default
-            #line hidden
+            this.clientsGrid = ((System.Windows.Controls.DataGrid)(target));
             return;
             case 2:
             this.btnClientsGrid = ((System.Windows.Controls.Button)(target));

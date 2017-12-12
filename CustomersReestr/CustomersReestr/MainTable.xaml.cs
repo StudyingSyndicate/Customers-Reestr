@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections;
+using System.Data.SqlClient;
+using System.Data.Objects;
+using System.Data;
 
 namespace CustomersReestr
 {
@@ -21,10 +24,25 @@ namespace CustomersReestr
     /// </summary>
     public partial class MainTable : Page
     {
+        CustomersEntities dataEntities = new CustomersEntities();
+
+
         public MainTable()
         {
             InitializeComponent();
             DBUtil.CheckConnection();
+                      
+        }
+   
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ObjectQuery<Customers> myTable = dataEntities.Customers;
+
+            var query =
+            from customer in myTable
+            select new { customer.id, customer.name };
+
+            clientsGrid.ItemsSource = query.ToList();
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)

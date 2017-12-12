@@ -9,6 +9,8 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("customers.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("customersdatamodel.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("customersdatamodel.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("customers_log.ldf")]
 
 
