@@ -78,7 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="CustomersGrid.xaml">
+    <Page Include="Components\ContentWindows\CustomersGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,23 +110,23 @@
       <DependentUpon>CustomersDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DBUtil.cs" />
-    <Compile Include="CustomersGrid.xaml.cs">
+    <Compile Include="Components\ContentWindows\CustomersGrid.xaml.cs">
       <DependentUpon>CustomersGrid.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Components\ContentWindows\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NewCustomer.xaml">
+    <Page Include="Components\ContentWindows\NewCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Components\ContentWindows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewCustomer.xaml.cs">
+    <Compile Include="Components\ContentWindows\NewCustomer.xaml.cs">
       <DependentUpon>NewCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -210,5 +210,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
