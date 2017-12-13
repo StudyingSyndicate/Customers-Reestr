@@ -16,7 +16,6 @@ namespace CustomersReestr
     {
         CustomersEntities dataEntities = new CustomersEntities();
 
-
         public CustomersGrid()
         {
             InitializeComponent();
@@ -44,7 +43,7 @@ namespace CustomersReestr
             from customer in customers
             select new { customer.name, customer.birthDate };
 
-            clientsGrid.ItemsSource = query.ToList();
+            grid.ItemsSource = query.ToList();
         }
 
         private void fillDataGrid()
@@ -65,7 +64,7 @@ namespace CustomersReestr
             from customer in customers
             select new { customer.name, customer.birthDate };
 
-            clientsGrid.ItemsSource = query.ToList();
+            grid.ItemsSource = query.ToList();
         }
 
         private void fillDataGrid2()
@@ -81,7 +80,7 @@ namespace CustomersReestr
              * которой нет при заполнеии через метод fillDataGrid
              */
             IEnumerable<Customers> customers = (from p in dataEntities.Customers select p).Take(20);
-            clientsGrid.ItemsSource = customers.ToList<Customers>();
+            grid.ItemsSource = customers.ToList<Customers>();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

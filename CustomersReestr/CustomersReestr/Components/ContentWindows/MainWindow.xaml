@@ -35,7 +35,7 @@
             <Border Grid.Row="1" Grid.Column="2" Background="LightBlue"/>
             <Border Grid.Row="1" Grid.Column="2" Background="LightBlue"/>
             <Border Grid.Row="2" Grid.Column="2" Background="LightBlue"/>
-            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="36" Source="img.png" Margin="10,10,0,0" />
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="36" Source="../../Resources/img.png" Margin="10,10,0,0" />
             <TextBlock x:Name="ProgramTitle" Margin="46,10,854,10" Grid.ColumnSpan="2" FontSize="36" FontFamily="Monotype Corsiva" FontWeight="Bold">Реестр клиентов</TextBlock>
         </Grid>
 

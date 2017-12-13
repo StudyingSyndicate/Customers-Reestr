@@ -27,12 +27,12 @@ namespace CustomersReestr
 
         private void CustomersGrid_ClickHandler(object sender, RoutedEventArgs e)
         {
-            Frame.Source = new Uri("MainTable.xaml", UriKind.Relative);
+            Frame.Source = new Uri("CustomersGrid.xaml", UriKind.Relative);
         }
 
         private void NotificationsGrid_ClickHandler(object sender, RoutedEventArgs e)
         {
-            //Frame.Source = new Uri("NewCustomer.xaml", UriKind.Relative);
+            Frame.Source = new Uri("NotificationsGrid.xaml", UriKind.Relative);
         }
 
         private void AddCustomer_ClickHandler(object sender, RoutedEventArgs e)
