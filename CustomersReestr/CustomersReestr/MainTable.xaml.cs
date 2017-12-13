@@ -76,11 +76,7 @@ namespace CustomersReestr
             clientsGrid.ItemsSource = customers.ToList<Customers>();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
