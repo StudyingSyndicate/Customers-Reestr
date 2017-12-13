@@ -26,23 +26,15 @@
             <Border Grid.Row="1" Background="LightBlue" Margin="0,0,0,34" Grid.RowSpan="2">
                 <WrapPanel>
                     <Button x:Name="btnClientsGrid" Width="63" Margin="5" Height="22" Click="Button_Click">Clients</Button>
-                    <Button Width="63" Margin="5" Height="22" Click="Button_Click_1">Notifications</Button>
                     <Button Width="63" Margin="5" Height="22" Click="Button_Click_2">New</Button>
-                    <Button Width="64" Margin="5" Height="22" Click="Button_Click_3">Admin</Button>
                 </WrapPanel>
             </Border>
             <Border Grid.Row="0" Background="LightBlue"/>
             <Border Grid.Row="0" Grid.Column="1" Background="LightBlue">
-                <WrapPanel>
-                    <Label Content="CuStomersREestr" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.192,0.037" Height="36"/>
-                    <TextBox Height="24" TextWrapping="Wrap" Text="Search" Width="160" TextChanged="TextBox_TextChanged_1"/>
-                    <CheckBox Content="login" Width="127" Checked="CheckBox_Checked_1"/>
-                </WrapPanel>
+               
             </Border>
             <Border Grid.Row="2" Grid.Column="0" Background="LightBlue"/>
-            <Border Grid.Row="2" Grid.Column="1" Background="Gray">
-                <StatusBar/>
-            </Border>
+            <Border Grid.Row="2" Grid.Column="1" Background="Gray"/>
             <Image HorizontalAlignment="Left" Height="86" VerticalAlignment="Top" Width="82" Source="img.png" />
         </Grid>
 
