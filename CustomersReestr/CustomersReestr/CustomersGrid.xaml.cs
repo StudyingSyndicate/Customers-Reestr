@@ -12,12 +12,12 @@ namespace CustomersReestr
     /// <summary>
     /// Логика взаимодействия для MainTable.xaml
     /// </summary>
-    public partial class MainTable : Page
+    public partial class CustomersGrid : Page
     {
         CustomersEntities dataEntities = new CustomersEntities();
 
 
-        public MainTable()
+        public CustomersGrid()
         {
             InitializeComponent();
             //DBUtil.CheckConnection(); // пока закомментировал, т.к. проверка подключения по автогенерируемой строке не работает сейчас

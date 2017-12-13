@@ -25,7 +25,7 @@ namespace CustomersReestr
             InitializeComponent();
         }
 
-        private void ClientsGrid_ClickHandler(object sender, RoutedEventArgs e)
+        private void CustomersGrid_ClickHandler(object sender, RoutedEventArgs e)
         {
             Frame.Source = new Uri("MainTable.xaml", UriKind.Relative);
         }
@@ -35,7 +35,7 @@ namespace CustomersReestr
             //Frame.Source = new Uri("NewCustomer.xaml", UriKind.Relative);
         }
 
-        private void AddClient_ClickHandler(object sender, RoutedEventArgs e)
+        private void AddCustomer_ClickHandler(object sender, RoutedEventArgs e)
         {
             Frame.Source = new Uri("NewCustomer.xaml", UriKind.Relative);
         }

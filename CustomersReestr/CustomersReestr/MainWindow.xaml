@@ -19,13 +19,13 @@
                 <ColumnDefinition Width="5"/>
             </Grid.ColumnDefinitions>
             <Border Grid.Row="1" Grid.Column="1" Background="White" Margin="5">
-                <Frame x:Name="Frame" Source="MainTable.xaml" NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="Frame" Source="CustomersGrid.xaml" NavigationUIVisibility="Hidden"/>
             </Border>
             <Border Grid.Row="1" Background="LightBlue" Grid.RowSpan="2">
                 <WrapPanel Margin="10,30,10,10" HorizontalAlignment="Center">
-                    <Button x:Name="btnClientsGrid" Height="30" Width="140" Margin="0 5" Click="ClientsGrid_ClickHandler" Content="Реестр клиентов" />
-                    <Button x:Name="btnNotificationGrid" Height="30" Width="140" Margin="0 5" Click="NotificationsGrid_ClickHandler" Content="Реестр уведомлений" />
-                    <Button x:Name="btnNewClient" Height="30" Width="140"  Margin="0 5" Click="AddClient_ClickHandler" Content="Добавить клиента"/>
+                    <Button x:Name="btnCustomersGrid" Height="30" Width="140" Margin="0 5" Click="CustomersGrid_ClickHandler" Content="Реестр клиентов" />
+                    <Button x:Name="btnNotificationsGrid" Height="30" Width="140" Margin="0 5" Click="NotificationsGrid_ClickHandler" Content="Реестр уведомлений" />
+                    <Button x:Name="btnNewCustomer" Height="30" Width="140"  Margin="0 5" Click="AddCustomer_ClickHandler" Content="Добавить клиента"/>
                 </WrapPanel>
             </Border>
             <Border Grid.Row="0" Background="#FFF7C295"/>

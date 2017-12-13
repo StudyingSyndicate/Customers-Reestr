@@ -1,4 +1,4 @@
-﻿<Page x:Class="CustomersReestr.MainTable"
+﻿<Page x:Class="CustomersReestr.CustomersGrid"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:CustomersReestr"
       mc:Ignorable="d" 
       d:DesignHeight="200" d:DesignWidth="200"
-      Title="Реестр покупателей - Таблица"
+      Title="Реестр покупателей"
       Loaded="Window_Loaded">
 
     <Grid>

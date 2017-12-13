@@ -78,7 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainTable.xaml">
+    <Page Include="CustomersGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,8 +110,8 @@
       <DependentUpon>CustomersDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DBUtil.cs" />
-    <Compile Include="MainTable.xaml.cs">
-      <DependentUpon>MainTable.xaml</DependentUpon>
+    <Compile Include="CustomersGrid.xaml.cs">
+      <DependentUpon>CustomersGrid.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
