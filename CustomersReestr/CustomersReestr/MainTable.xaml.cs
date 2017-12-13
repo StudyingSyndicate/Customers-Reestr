@@ -21,7 +21,7 @@ namespace CustomersReestr
         {
             InitializeComponent();
             //DBUtil.CheckConnection(); // пока закомментировал, т.к. проверка подключения по автогенерируемой строке не работает сейчас
-            fillDataGrid();
+            //fillDataGrid2();
         }
    
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -36,6 +36,15 @@ namespace CustomersReestr
             select new { customer.id, customer.name };
 
             clientsGrid.ItemsSource = query.ToList();*/
+            var adapter = (IObjectContextAdapter)dataEntities;
+            var objectContext = adapter.ObjectContext;
+            ObjectSet<Customers> customers = objectContext.CreateObjectSet<Customers>();
+
+            var query =
+            from customer in customers
+            select new { customer.name, customer.birthDate };
+
+            clientsGrid.ItemsSource = query.ToList();
         }
 
         private void fillDataGrid()
@@ -48,15 +57,7 @@ namespace CustomersReestr
              * вот ссылка по этому поводу https://stackoverflow.com/questions/27093849/how-do-i-convert-dbset-to-objectquery
              * и вот https://stackoverflow.com/questions/8059900/convert-dbcontext-to-objectcontext-for-use-with-gridview
              */
-            var adapter = (IObjectContextAdapter)dataEntities;
-            var objectContext = adapter.ObjectContext;
-            ObjectSet<Customers> customers = objectContext.CreateObjectSet<Customers>();
-
-            var query =
-            from customer in customers
-            select new { customer.name, customer.birthDate};
-
-            clientsGrid.ItemsSource = query.ToList();
+           
         }
 
         private void fillDataGrid2()

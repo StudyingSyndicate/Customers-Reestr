@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:CustomersReestr"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1200"
-      Title="Реестр покупателей - Основной экран">
+      Title="Реестр покупателей - Основной экран"
+      Loaded="Window_Loaded">
 
     <Grid>
         <Grid HorizontalAlignment="Left" Height="790" Margin="10,10,0,0" VerticalAlignment="Top" Width="1190">
