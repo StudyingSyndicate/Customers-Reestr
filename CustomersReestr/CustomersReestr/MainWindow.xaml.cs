@@ -27,10 +27,7 @@ namespace CustomersReestr
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-           
-           
-           
-                Frame.Source = new Uri("NewCustomer.xaml", UriKind.Relative);
+           Frame.Source = new Uri("NewCustomer.xaml", UriKind.Relative);
             
         }
 

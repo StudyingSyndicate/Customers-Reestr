@@ -5,12 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CustomersReestr"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="1200"
+      d:DesignHeight="630" d:DesignWidth="1005"
       Title="Реестр покупателей - Таблица"
       Loaded="Window_Loaded">
 
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="790" Margin="10,10,0,0" VerticalAlignment="Top" Width="1190">
+        <Grid HorizontalAlignment="Left" Height="630" Margin="10,10,0,0" VerticalAlignment="Top" Width="1005">
             <Border Grid.Row="1" Background="White">
                 <DataGrid x:Name="clientsGrid" AutoGenerateColumns="True" Margin="0,10,0,0" />
             </Border>
