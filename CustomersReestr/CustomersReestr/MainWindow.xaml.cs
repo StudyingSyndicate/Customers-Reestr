@@ -25,15 +25,19 @@ namespace CustomersReestr
             InitializeComponent();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-           Frame.Source = new Uri("NewCustomer.xaml", UriKind.Relative);
-            
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ClientsGrid_ClickHandler(object sender, RoutedEventArgs e)
         {
             Frame.Source = new Uri("MainTable.xaml", UriKind.Relative);
+        }
+
+        private void NotificationsGrid_ClickHandler(object sender, RoutedEventArgs e)
+        {
+            //Frame.Source = new Uri("NewCustomer.xaml", UriKind.Relative);
+        }
+
+        private void AddClient_ClickHandler(object sender, RoutedEventArgs e)
+        {
+            Frame.Source = new Uri("NewCustomer.xaml", UriKind.Relative);
         }
     }
 }
