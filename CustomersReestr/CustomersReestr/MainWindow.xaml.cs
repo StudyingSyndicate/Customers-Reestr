@@ -18,8 +18,26 @@ namespace CustomersReestr
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class MainWindow : Window
     {
-      
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void ClientsGrid_ClickHandler(object sender, RoutedEventArgs e)
+        {
+            Frame.Source = new Uri("MainTable.xaml", UriKind.Relative);
+        }
+
+        private void NotificationsGrid_ClickHandler(object sender, RoutedEventArgs e)
+        {
+            //Frame.Source = new Uri("NewCustomer.xaml", UriKind.Relative);
+        }
+
+        private void AddClient_ClickHandler(object sender, RoutedEventArgs e)
+        {
+            Frame.Source = new Uri("NewCustomer.xaml", UriKind.Relative);
+        }
     }
 }

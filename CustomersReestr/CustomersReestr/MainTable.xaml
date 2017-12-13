@@ -5,37 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CustomersReestr"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="1200"
-      Title="Реестр покупателей - Основной экран"
+      d:DesignHeight="200" d:DesignWidth="200"
+      Title="Реестр покупателей - Таблица"
       Loaded="Window_Loaded">
 
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="790" Margin="10,10,0,0" VerticalAlignment="Top" Width="1190">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="36*"/>
-                <RowDefinition Height="209*"/>
-                <RowDefinition Height="17*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="19*"/>
-                <ColumnDefinition Width="103*"/>
-            </Grid.ColumnDefinitions>
-            <Border Grid.Row="1" Grid.Column="1" Background="White">
-                <DataGrid x:Name="clientsGrid" AutoGenerateColumns="True" />
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Border Grid.Row="1" Background="White">
+                <DataGrid x:Name="clientsGrid" AutoGenerateColumns="True"/>
             </Border>
-            <Border Grid.Row="1" Background="LightBlue" Margin="0,0,0,34" Grid.RowSpan="2">
-                <WrapPanel>
-                    <Button x:Name="btnClientsGrid" Width="63" Margin="5" Height="22" Click="Button_Click">Clients</Button>
-                    <Button Width="63" Margin="5" Height="22" Click="Button_Click_2">New</Button>
-                </WrapPanel>
-            </Border>
-            <Border Grid.Row="0" Background="LightBlue"/>
-            <Border Grid.Row="0" Grid.Column="1" Background="LightBlue">
-               
-            </Border>
-            <Border Grid.Row="2" Grid.Column="0" Background="LightBlue"/>
-            <Border Grid.Row="2" Grid.Column="1" Background="Gray"/>
-            <Image HorizontalAlignment="Left" Height="86" VerticalAlignment="Top" Width="82" Source="img.png" />
         </Grid>
 
     </Grid>

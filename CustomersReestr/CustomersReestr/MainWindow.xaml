@@ -1,9 +1,43 @@
-﻿<NavigationWindow x:Class="CustomersReestr.NavigationWindow"
+﻿<Window x:Class="CustomersReestr.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomersReestr"
         mc:Ignorable="d"
-        Title="Реестр покупателей" Height="800" Width="1200" Source="MainTable.xaml">
-</NavigationWindow>
+        Title="Реестр покупателей" Height="800" Width="1200">
+    <Grid>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="1" Grid.Column="1" Background="White" Margin="5">
+                <Frame x:Name="Frame" Source="MainTable.xaml" NavigationUIVisibility="Hidden"/>
+            </Border>
+            <Border Grid.Row="1" Background="LightBlue" Grid.RowSpan="2">
+                <WrapPanel Margin="10,30,10,10" HorizontalAlignment="Center">
+                    <Button x:Name="btnClientsGrid" Height="30" Width="140" Margin="0 5" Click="ClientsGrid_ClickHandler" Content="Реестр клиентов" />
+                    <Button x:Name="btnNotificationGrid" Height="30" Width="140" Margin="0 5" Click="NotificationsGrid_ClickHandler" Content="Реестр уведомлений" />
+                    <Button x:Name="btnNewClient" Height="30" Width="140"  Margin="0 5" Click="AddClient_ClickHandler" Content="Добавить клиента"/>
+                </WrapPanel>
+            </Border>
+            <Border Grid.Row="0" Background="#FFF7C295"/>
+            <Border Grid.Row="0" Grid.Column="1" Background="#FFF7C295"/>
+            <Border Grid.Row="0" Grid.Column="2" Background="#FFF7C295"/>
+            <Border Grid.Row="2" Grid.Column="1" Background="LightBlue"/>
+            <Border Grid.Row="1" Grid.Column="2" Background="LightBlue"/>
+            <Border Grid.Row="1" Grid.Column="2" Background="LightBlue"/>
+            <Border Grid.Row="2" Grid.Column="2" Background="LightBlue"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="36" Source="img.png" Margin="10,10,0,0" />
+            <TextBlock x:Name="ProgramTitle" Margin="46,10,854,10" Grid.ColumnSpan="2" FontSize="36" FontFamily="Monotype Corsiva" FontWeight="Bold">Реестр клиентов</TextBlock>
+        </Grid>
+
+    </Grid>
+</Window>

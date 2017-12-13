@@ -57,7 +57,15 @@ namespace CustomersReestr
              * вот ссылка по этому поводу https://stackoverflow.com/questions/27093849/how-do-i-convert-dbset-to-objectquery
              * и вот https://stackoverflow.com/questions/8059900/convert-dbcontext-to-objectcontext-for-use-with-gridview
              */
-           
+            var adapter = (IObjectContextAdapter)dataEntities;
+            var objectContext = adapter.ObjectContext;
+            ObjectSet<Customers> customers = objectContext.CreateObjectSet<Customers>();
+
+            var query =
+            from customer in customers
+            select new { customer.name, customer.birthDate };
+
+            clientsGrid.ItemsSource = query.ToList();
         }
 
         private void fillDataGrid2()
@@ -76,11 +84,7 @@ namespace CustomersReestr
             clientsGrid.ItemsSource = customers.ToList<Customers>();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
