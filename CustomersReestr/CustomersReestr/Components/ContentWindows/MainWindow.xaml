@@ -32,7 +32,7 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Image Grid.Column="0" Source="../../Resources/datagrid_icon.png"/>
-                            <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">Реестр клиентов</TextBlock>
+                            <TextBlock Name="btnCustomersGridLabel" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">Реестр клиентов</TextBlock>
                         </Grid>
                     </Button>
                     <Button x:Name="btnNotificationsGrid" Height="40" Click="NotificationsGrid_ClickHandler" HorizontalContentAlignment="Left">
@@ -42,7 +42,7 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Image Grid.Column="0" Source="../../Resources/datagrid_icon.png"/>
-                            <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">Реестр уведомлений</TextBlock>
+                            <TextBlock Name="btnNotificationsGridLabel" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">Реестр уведомлений</TextBlock>
                         </Grid>
                     </Button>
                     <Button x:Name="btnNewCustomer" Height="40" Click="AddCustomer_ClickHandler" HorizontalContentAlignment="Left">
@@ -52,20 +52,22 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Image Grid.Column="0" Source="../../Resources/datagrid_icon.png"/>
-                            <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">Добавить клиента</TextBlock>
+                            <TextBlock Name="btnNewCustomerLabel" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">Добавить клиента</TextBlock>
                         </Grid>
                     </Button>
                 </StackPanel>
             </Border>
             <Border Grid.Row="1" Grid.Column="2" Background="LightBlue"/>
             <Border Grid.Row="2" Background="LightBlue" Grid.ColumnSpan="3"/>
-            <Border Grid.Row="0" Background="#FFF7C295" Grid.ColumnSpan="3" Margin="0,0,0,0">
+            <Border Grid.Row="0" Background="#FFF7C295" Grid.ColumnSpan="3">
                 <Border.Effect>
                     <DropShadowEffect/>
                 </Border.Effect>
             </Border>
-            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="36" Source="../../Resources/img.png" Margin="10,10,0,0" />
-            <TextBlock x:Name="ProgramTitle" Margin="46,10,854,10" Grid.ColumnSpan="2" FontSize="36" FontFamily="Monotype Corsiva" FontWeight="Bold">Реестр клиентов</TextBlock>
+            <DockPanel Grid.ColumnSpan="2" Margin="10">
+                <Image Height="40" Margin="0 0 10 0" VerticalAlignment="Center" Source="../../Resources/img.png" />
+                <TextBlock x:Name="ProgramTitle" VerticalAlignment="Center" FontSize="36" FontFamily="Monotype Corsiva" FontWeight="Bold">Реестр клиентов</TextBlock>
+            </DockPanel>
         </Grid>
     </Grid>
 </Window>

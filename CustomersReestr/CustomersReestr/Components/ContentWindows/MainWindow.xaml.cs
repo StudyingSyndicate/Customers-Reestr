@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CustomersReestr
 {
@@ -27,17 +16,30 @@ namespace CustomersReestr
 
         private void CustomersGrid_ClickHandler(object sender, RoutedEventArgs e)
         {
-            Frame.Source = new Uri("CustomersGrid.xaml", UriKind.Relative);
+            SetFrameSource("CustomersGrid.xaml");
+            SetProgramTitleText(btnCustomersGridLabel.Text);
         }
 
         private void NotificationsGrid_ClickHandler(object sender, RoutedEventArgs e)
         {
-            Frame.Source = new Uri("NotificationsGrid.xaml", UriKind.Relative);
+            SetFrameSource("NotificationsGrid.xaml");
+            SetProgramTitleText(btnNotificationsGridLabel.Text);
         }
 
         private void AddCustomer_ClickHandler(object sender, RoutedEventArgs e)
         {
-            Frame.Source = new Uri("NewCustomer.xaml", UriKind.Relative);
+            SetFrameSource("NewCustomer.xaml");
+            SetProgramTitleText(btnNewCustomerLabel.Text);
+        }
+
+        private void SetProgramTitleText(string text)
+        {
+            ProgramTitle.Text = text;
+        }
+
+        private void SetFrameSource(string filename)
+        {
+            Frame.Source = new Uri(filename, UriKind.Relative);
         }
     }
 }
