@@ -1,8 +1,6 @@
-﻿using System;
+﻿using CustomersReestr.Components.Controllers;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity.Infrastructure;
-using System.Data.Objects;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,7 +33,8 @@ namespace CustomersReestr
             select new { customer.id, customer.name };
 
             clientsGrid.ItemsSource = query.ToList();*/
-            var adapter = (IObjectContextAdapter)dataEntities;
+
+            /*var adapter = (IObjectContextAdapter)dataEntities;
             var objectContext = adapter.ObjectContext;
             ObjectSet<Customers> customers = objectContext.CreateObjectSet<Customers>();
 
@@ -43,10 +42,12 @@ namespace CustomersReestr
             from customer in customers
             select new { customer.name, customer.birthDate };
 
-            grid.ItemsSource = query.ToList();
+            grid.ItemsSource = query.ToList();*/
+
+            FillDataGrid();
         }
 
-        private void fillDataGrid()
+        private void FillDataGrid()
         {
             /* ObjectSet<Customers> это по факту тоже самое что ObjectQuery<Customers>,
              * т.к. ObjectSet наследуется от ObjectQuery
@@ -56,7 +57,7 @@ namespace CustomersReestr
              * вот ссылка по этому поводу https://stackoverflow.com/questions/27093849/how-do-i-convert-dbset-to-objectquery
              * и вот https://stackoverflow.com/questions/8059900/convert-dbcontext-to-objectcontext-for-use-with-gridview
              */
-            var adapter = (IObjectContextAdapter)dataEntities;
+            /*var adapter = (IObjectContextAdapter)dataEntities;
             var objectContext = adapter.ObjectContext;
             ObjectSet<Customers> customers = objectContext.CreateObjectSet<Customers>();
 
@@ -64,7 +65,9 @@ namespace CustomersReestr
             from customer in customers
             select new { customer.name, customer.birthDate };
 
-            grid.ItemsSource = query.ToList();
+            grid.ItemsSource = query.ToList();*/
+
+            grid.ItemsSource = CustomerController.GetCustomers();
         }
 
         private void fillDataGrid2()

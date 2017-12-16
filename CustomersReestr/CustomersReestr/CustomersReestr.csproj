@@ -117,6 +117,7 @@
     <Compile Include="Components\ContentWindows\NotificationsGrid.xaml.cs">
       <DependentUpon>NotificationsGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\Controllers\CustomerController.cs" />
     <Compile Include="Customers.cs">
       <DependentUpon>CustomersDataModel.tt</DependentUpon>
     </Compile>
