@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:CustomersReestr"
              StartupUri="Components/ContentWindows/MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source=" Components\Assets\UIThemeTemplates\WhistlerBlue.xaml"/>
     </Application.Resources>
 </Application>
