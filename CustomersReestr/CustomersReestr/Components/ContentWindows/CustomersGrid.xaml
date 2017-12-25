@@ -10,7 +10,7 @@
       Loaded="Window_Loaded">
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Border Grid.Row="1" Background="White">
-            <DataGrid x:Name="grid" AutoGenerateColumns="True"/>
+            <DataGrid x:Name="cusgrid" AutoGenerateColumns="True"/>
         </Border>
     </Grid>
 </Page>

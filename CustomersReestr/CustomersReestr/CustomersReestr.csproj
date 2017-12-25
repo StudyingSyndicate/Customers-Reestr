@@ -118,6 +118,8 @@
       <DependentUpon>NotificationsGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="Components\Controllers\CustomerController.cs" />
+    <Compile Include="Components\Models\Customer.cs" />
+    <Compile Include="Components\Models\CustomerContext.cs" />
     <Compile Include="Customers.cs">
       <DependentUpon>CustomersDataModel.tt</DependentUpon>
     </Compile>
@@ -135,11 +137,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CustomersDataModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="CustomersDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CustomersDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DBUtil.cs" />
     <Compile Include="Components\ContentWindows\CustomersGrid.xaml.cs">
@@ -189,18 +186,11 @@
     <None Include="CustomersDataModel.edmx.diagram">
       <DependentUpon>CustomersDataModel.edmx</DependentUpon>
     </None>
-    <None Include="CustomersDataSet.xsc">
-      <DependentUpon>CustomersDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="CustomersDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CustomersDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CustomersDataSet.xss">
-      <DependentUpon>CustomersDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Customers.datasource" />
+    <None Include="Properties\DataSources\CustomersEntities.datasource" />
+    <None Include="Properties\DataSources\CustomersReestr.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\CustomersReestr.Properties.Settings.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

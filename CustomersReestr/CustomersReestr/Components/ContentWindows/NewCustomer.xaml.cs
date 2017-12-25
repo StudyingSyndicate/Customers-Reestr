@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CustomersReestr.Components.Models;
+using System.Data.Entity;
 
 namespace CustomersReestr
 {
@@ -22,7 +24,15 @@ namespace CustomersReestr
     {
         public NewCustomer()
         {
+            
+            var myNewCustomer = new Customers();
+            myNewCustomer.name = CustomerName.Text;
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
