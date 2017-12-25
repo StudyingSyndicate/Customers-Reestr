@@ -1,38 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using CustomersReestr.Components.Models;
-using System.Data.Entity;
+using CustomersReestr.Components.Controllers;
 
 namespace CustomersReestr
 {
-    /// <summary>
-    /// Логика взаимодействия для NewCustomer.xaml
-    /// </summary>
     public partial class NewCustomer : Page
     {
         public NewCustomer()
         {
-            
-            var myNewCustomer = new Customers();
-            myNewCustomer.name = CustomerName.Text;
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OnSaveBtnClick(object sender, RoutedEventArgs e)
         {
-
+            CustomerController.CreateNewCustomer(InputTextField_Name.Text);
         }
     }
 }

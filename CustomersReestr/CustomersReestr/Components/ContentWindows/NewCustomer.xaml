@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CustomersReestr" x:Class="CustomersReestr.NewCustomer" 
-      mc:Ignorable="d" Height="189" Width="445.5">
+      mc:Ignorable="d">
 
     <Page.Resources>
         <CollectionViewSource x:Key="customersViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Customers}, CreateList=True}"/>
@@ -21,12 +21,12 @@
                 <RowDefinition Height="30" />
                 <RowDefinition Height="30" />
                 <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
             </Grid.RowDefinitions>
 
             <DockPanel Grid.Row="0" VerticalAlignment="Center" DataContext="{StaticResource customersViewSource}">
                 <Label Width="100" VerticalContentAlignment="Center" Content="ФИО:"/>
-                <TextBox x:Name="CustomerName">
-                </TextBox>
+                <TextBox x:Name="InputTextField_Name"/>
             </DockPanel>
 
             <DockPanel Grid.Row="1" VerticalAlignment="Center">
@@ -38,7 +38,11 @@
                 <Label Width="100" VerticalContentAlignment="Center" Content="Телефон:"/>
                 <TextBox/>
             </DockPanel>
+
+            <DockPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Button Content="Сохранить" Width="75" Click="OnSaveBtnClick"/>
+            </DockPanel>
+            
         </Grid>
-        <Button Content="Button" Width="75" Click="Button_Click"/>
     </WrapPanel>
 </Page>

@@ -9,23 +9,22 @@ using System.Data.Entity;
 
 namespace CustomersReestr
 {
-    /// <summary>
-    /// Логика взаимодействия для MainTable.xaml
-    /// </summary>
     public partial class CustomersGrid : Page
     {
       
         public CustomersGrid()
 
         {
-            CustomerContext db;
             InitializeComponent();
+            /* Нерабочий код. Пока убрал, потом разберемся с этим
+             * Вернул как было
+             * 
+             * CustomerContext db;
             db = new CustomerContext();
             db.Customers.Load(); // загружаем данные
-            cusgrid.ItemsSource = db.Customers.Local.ToBindingList(); // устанавливаем привязку к кэшу
+            cusgrid.ItemsSource = db.Customers.Local.ToBindingList(); // устанавливаем привязку к кэшу*/
 
-           
-
+            cusgrid.ItemsSource = CustomerController.GetCustomers();
         }
    
         private void Window_Loaded(object sender, RoutedEventArgs e)
