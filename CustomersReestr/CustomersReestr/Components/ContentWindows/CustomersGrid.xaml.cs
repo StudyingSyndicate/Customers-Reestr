@@ -15,16 +15,15 @@ namespace CustomersReestr
         public CustomersGrid()
 
         {
+            Database.SetInitializer(
+               new DropCreateDatabaseIfModelChanges<CustomerContext>());
             InitializeComponent();
-            /* Нерабочий код. Пока убрал, потом разберемся с этим
-             * Вернул как было
-             * 
-             * CustomerContext db;
+             CustomerContext db;
             db = new CustomerContext();
-            db.Customers.Load(); // загружаем данные
-            cusgrid.ItemsSource = db.Customers.Local.ToBindingList(); // устанавливаем привязку к кэшу*/
+            db.Customers.Load(); 
+            cusgrid.ItemsSource = db.Customers.Local.ToList(); 
 
-            cusgrid.ItemsSource = CustomerController.GetCustomers();
+            
         }
    
         private void Window_Loaded(object sender, RoutedEventArgs e)

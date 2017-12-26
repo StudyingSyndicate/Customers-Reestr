@@ -4,16 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CustomersReestr" x:Class="CustomersReestr.NewCustomer" 
-      mc:Ignorable="d">
+      mc:Ignorable="d" Height="260" Width="465.5">
 
     <Page.Resources>
-        <CollectionViewSource x:Key="customersViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Customers}, CreateList=True}"/>
-        <CollectionViewSource x:Key="customersEntitiesViewSource" d:DesignSource="{d:DesignInstance {x:Type local:CustomersEntities}, CreateList=True}"/>
-        <CollectionViewSource x:Key="customersEntitiesCustomersViewSource" Source="{Binding Customers, Source={StaticResource customersEntitiesViewSource}}"/>
+
     </Page.Resources>
 
-    <WrapPanel Margin="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White">
-        <Grid Margin="10">
+    <WrapPanel Margin="5,5,6,20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White">
+        <Grid Margin="10" Height="182" Width="412">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="400" />
             </Grid.ColumnDefinitions>
@@ -22,27 +20,32 @@
                 <RowDefinition Height="30" />
                 <RowDefinition Height="30" />
                 <RowDefinition Height="30" />
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <DockPanel Grid.Row="0" VerticalAlignment="Center" DataContext="{StaticResource customersViewSource}">
+            <DockPanel Grid.Row="0" VerticalAlignment="Center" Margin="0,4,0,2" Height="24" >
                 <Label Width="100" VerticalContentAlignment="Center" Content="ФИО:"/>
                 <TextBox x:Name="InputTextField_Name"/>
             </DockPanel>
 
-            <DockPanel Grid.Row="1" VerticalAlignment="Center">
-                <Label Width="100" VerticalContentAlignment="Center" Content="Пол:"/>
-                <TextBox/>
+            <DockPanel Grid.Row="2" VerticalAlignment="Center" Margin="100,4,-1,2" Height="24">
+                <TextBox x:Name="InputTextField_Email" Width="300"/>
             </DockPanel>
 
-            <DockPanel Grid.Row="2" VerticalAlignment="Center">
-                <Label Width="100" VerticalContentAlignment="Center" Content="Телефон:"/>
-                <TextBox/>
-            </DockPanel>
+            <DockPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,20,0,10" Height="0" Width="0"/>
+            <Label VerticalContentAlignment="Center" Content="Email:" Margin="0,6,306,0" Grid.Row="2"/>
+            <Label VerticalContentAlignment="Center" Content="Дата Рождения:" Margin="0,6,301,0" Grid.Row="4"/>
+            <Label VerticalContentAlignment="Center" Content="Телефон:" Margin="0,3,301,3" Grid.Row="3"/>
+            <Button Content="Сохранить" Click="OnSaveBtnClick" Margin="328,6,-1,4" Grid.Row="5"/>
+            <TextBox x:Name="InputTextField_Phone" Margin="100,5,-1,1" Grid.Row="3"/>
+            <DatePicker x:Name="DateTimePicker_BirthDate" HorizontalAlignment="Left" Margin="100,0,0,0" Grid.Row="4" VerticalAlignment="Top" Height="30" Width="180" SelectedDateFormat="Short" DisplayDateStart="1990-01-01"/>
+            <ComboBox x:Name="ComboInputPicker_Sex" HorizontalAlignment="Left" Height="22" Margin="105,3,0,0" Grid.Row="1" VerticalAlignment="Top" Width="62">
+                <TextBlock Height="17">Муж</TextBlock>
+                <TextBlock>Жен</TextBlock>
+            </ComboBox>
+            <Label VerticalContentAlignment="Center" Content="Пол:" Margin="0,7,301,29" Grid.Row="1" Grid.RowSpan="2"/>
 
-            <DockPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right">
-                <Button Content="Сохранить" Width="75" Click="OnSaveBtnClick"/>
-            </DockPanel>
-            
         </Grid>
     </WrapPanel>
 </Page>

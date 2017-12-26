@@ -13,7 +13,7 @@ namespace CustomersReestr
 
         private void OnSaveBtnClick(object sender, RoutedEventArgs e)
         {
-            CustomerController.CreateNewCustomer(InputTextField_Name.Text);
+            CustomerController.CreateNewCustomer(InputTextField_Name.Text, ComboInputPicker_Sex.Text, InputTextField_Email.Text, InputTextField_Phone.Text, DateTimePicker_BirthDate.SelectedDate);
         }
     }
 }

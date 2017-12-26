@@ -9,7 +9,7 @@ namespace CustomersReestr.Components.Models
 {
     class CustomerContext : DbContext
     {
-        public CustomerContext() : base("CustomersEntities")
+        public CustomerContext() : base("CustomersReestr.Properties.Settings.CustomersConnectionString")
         {
 
         }

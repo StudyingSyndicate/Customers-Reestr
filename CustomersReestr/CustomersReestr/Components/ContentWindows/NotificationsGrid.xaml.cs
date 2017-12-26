@@ -21,7 +21,7 @@ namespace CustomersReestr.Components.ContentWindows
     public partial class NotificationsGrid : Page
     {
 
-        CustomersEntities dataEntities = new CustomersEntities();
+       
 
         public NotificationsGrid()
         {
@@ -30,8 +30,6 @@ namespace CustomersReestr.Components.ContentWindows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            IEnumerable<Customers> customers = (from p in dataEntities.Customers select p).Take(20);
-            grid.ItemsSource = customers.ToList<Customers>();
         }
     }
 }

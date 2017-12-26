@@ -120,24 +120,6 @@
     <Compile Include="Components\Controllers\CustomerController.cs" />
     <Compile Include="Components\Models\Customer.cs" />
     <Compile Include="Components\Models\CustomerContext.cs" />
-    <Compile Include="Customers.cs">
-      <DependentUpon>CustomersDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustomersDataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CustomersDataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustomersDataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CustomersDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustomersDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CustomersDataModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="DBUtil.cs" />
     <Compile Include="Components\ContentWindows\CustomersGrid.xaml.cs">
       <DependentUpon>CustomersGrid.xaml</DependentUpon>
@@ -179,13 +161,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="CustomersDataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CustomersDataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="CustomersDataModel.edmx.diagram">
-      <DependentUpon>CustomersDataModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Customers.datasource" />
     <None Include="Properties\DataSources\CustomersEntities.datasource" />
@@ -217,16 +192,6 @@
   <ItemGroup>
     <Content Include="Customers.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="CustomersDataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CustomersDataModel.Context.cs</LastGenOutput>
-      <DependentUpon>CustomersDataModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="CustomersDataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CustomersDataModel.edmx</DependentUpon>
-      <LastGenOutput>CustomersDataModel.cs</LastGenOutput>
     </Content>
     <Content Include="Customers_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
