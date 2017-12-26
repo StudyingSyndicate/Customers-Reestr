@@ -16,7 +16,7 @@ namespace CustomersReestr
 
         {
             Database.SetInitializer(
-               new DropCreateDatabaseIfModelChanges<CustomerContext>());
+               new DropCreateDatabaseIfModelChanges<CustomerContext>()); // строка нужна для очищения таблицы при изменении в customers.cs
             InitializeComponent();
              CustomerContext db;
             db = new CustomerContext();

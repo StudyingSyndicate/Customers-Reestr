@@ -15,7 +15,7 @@ namespace CustomersReestr.Components.Controllers
         public static void CreateNewCustomer(string name, string sex, string email, string phone, DateTime? birthDate)
         {
             Database.SetInitializer(
-                new DropCreateDatabaseIfModelChanges<CustomerContext>());
+                new DropCreateDatabaseIfModelChanges<CustomerContext>());// строка нужна для очищения таблицы при изменении в customers.cs
             var myNewCustomer = new Customers
             {
 

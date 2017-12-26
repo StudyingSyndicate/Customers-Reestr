@@ -7,10 +7,14 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CustomersReestr.Components.Models
+
+    /*тут задается структура нашей таблицы или таблиц
+     * можно прописать почти все, что создается в SQL*/
+
 {
    public class Customers
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //автогенерация ИД
         public int Id { get; set; }
         [Required]
         public string name { get; set; }
