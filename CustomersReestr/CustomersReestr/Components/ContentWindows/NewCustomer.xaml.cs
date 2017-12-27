@@ -12,7 +12,14 @@ namespace CustomersReestr
             InitializeComponent();
 
         }
-
+        private void ClearBoxes()
+        {
+            InputTextField_Name.Clear();
+            InputTextField_Email.Clear();
+            InputTextField_Phone.Clear();
+            DateTimePicker_BirthDate.Text = null;
+            ComboInputPicker_Sex.Text = null;
+        }
         private void OnSaveBtnClick(object sender, RoutedEventArgs e)
         {
             if (InputTextField_Name.Text == "" || ComboInputPicker_Sex.Text == "" || InputTextField_Email.Text == "" || InputTextField_Phone.Text == "")
@@ -27,8 +34,9 @@ namespace CustomersReestr
                                InputTextField_Email.Text,
                                InputTextField_Phone.Text,
                                DateTimePicker_BirthDate.SelectedDate);
+                ClearBoxes();
             }
-           
+
         }
     }
 }
