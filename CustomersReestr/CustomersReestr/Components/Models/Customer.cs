@@ -18,7 +18,7 @@ namespace CustomersReestr.Components.Models
         public int Id { get; set; }
         [Required]
         public string name { get; set; }
-        [Required] [MaxLength(4)]
+        [Required] [MaxLength(10)]
         public string sex { get; set; }
         [Required] [MaxLength(30)]
         public string email { get; set; }
