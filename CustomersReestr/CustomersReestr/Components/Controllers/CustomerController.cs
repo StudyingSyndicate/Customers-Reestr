@@ -3,6 +3,7 @@ using System.Data.Entity;
 using CustomersReestr.Components.Models;
 using System.Linq;
 using System.Collections.Generic;
+using System.IO;
 
 namespace CustomersReestr.Components.Controllers
 {
@@ -13,6 +14,7 @@ namespace CustomersReestr.Components.Controllers
             SetInitializerDropDbOnModelChange();
             CustomerContext db = new CustomerContext();
             db.Customers.Load();
+
             return db.Customers.Local.ToList();
         }
 
@@ -39,6 +41,15 @@ namespace CustomersReestr.Components.Controllers
         private static void SetInitializerDropDbOnModelChange()
         {
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<CustomerContext>());// строка нужна для очищения таблицы при изменении в customers.cs
+        }
+
+        /// Убрать в продакшн коде
+        public static void InitDBSomething()
+        {
+            string relative = @"..\..\Customers.mdf";
+            string absolute = Path.GetFullPath(relative);
+            absolute = Path.GetDirectoryName(@absolute);
+            AppDomain.CurrentDomain.SetData("DataDirectory", absolute);
         }
     }
 }

@@ -22,7 +22,10 @@ namespace CustomersReestr
         }
         private void OnSaveBtnClick(object sender, RoutedEventArgs e)
         {
-            if (InputTextField_Name.Text == "" || ComboInputPicker_Sex.Text == "" || InputTextField_Email.Text == "" || InputTextField_Phone.Text == "")
+            if (InputTextField_Name.Text == "" 
+                || ComboInputPicker_Sex.Text == "" 
+                || InputTextField_Email.Text == "" 
+                || InputTextField_Phone.Text == "")
             {
                 MessageBox.Show("Заполните все поля");
             }

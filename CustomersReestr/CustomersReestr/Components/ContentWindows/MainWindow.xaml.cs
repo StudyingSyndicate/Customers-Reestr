@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CustomersReestr.Components.Controllers;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,6 +13,7 @@ namespace CustomersReestr
         public MainWindow()
         {
             InitializeComponent();
+            CustomerController.InitDBSomething();
         }
 
         private void CustomersGrid_ClickHandler(object sender, RoutedEventArgs e)
