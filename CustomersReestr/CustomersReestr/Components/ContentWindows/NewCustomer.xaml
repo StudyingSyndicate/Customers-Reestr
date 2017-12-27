@@ -49,11 +49,15 @@
 
             <DockPanel Grid.Row="4" VerticalAlignment="Center">
                 <Label Width="100" VerticalContentAlignment="Center" Content="Дата Рождения:"/>
-                <DatePicker x:Name="DateTimePicker_BirthDate" HorizontalAlignment="Left" VerticalAlignment="Center"  SelectedDateFormat="Short" DisplayDateStart="1990-01-01" Text="Выберите дату"/>
+                <DatePicker x:Name="DateTimePicker_BirthDate" HorizontalAlignment="Left" VerticalAlignment="Center"  SelectedDateFormat="Short" DisplayDateStart="1980-01-01" Text="Выберите дату">
+                    <DatePicker.Effect>
+                        <DropShadowEffect BlurRadius="7" Opacity="0.4"/>
+                    </DatePicker.Effect>
+                </DatePicker>
             </DockPanel>
 
             <DockPanel Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right">
-                <Button Content="Сохранить" Width="75" Click="OnSaveBtnClick"/>
+                <Button x:Name="SaveBtn" Content="Сохранить" Width="75" Click="OnSaveBtnClick"/>
             </DockPanel>
 
         </Grid>
