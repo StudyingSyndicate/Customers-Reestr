@@ -37,6 +37,7 @@ namespace CustomersReestr
                                InputTextField_Email.Text,
                                InputTextField_Phone.Text,
                                DateTimePicker_BirthDate.SelectedDate);
+                MessageBox.Show("Клиент добавлен");
                 ClearBoxes();
             }
 
