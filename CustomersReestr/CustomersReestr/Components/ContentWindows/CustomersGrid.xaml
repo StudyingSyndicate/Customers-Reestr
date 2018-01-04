@@ -11,11 +11,11 @@
             <DataGrid x:Name="cusgrid" AutoGenerateColumns="false" ItemsSource="{Binding}" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="№" Binding="{Binding Path=Id}" Width="25"/>
-                    <DataGridTextColumn Header="Дата регистрации" Binding="{Binding Path=RegDate}" Width="150"/>
+                    <DataGridTextColumn Header="Дата регистрации" Binding="{Binding Path=RegDate, StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" Width="150"/>
                     <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" Width="150"/>
                     <DataGridTextColumn Header="Имя" Binding="{Binding Path=Name}" Width="100"/>
                     <DataGridTextColumn Header="Отчество" Binding="{Binding Path=MiddleName}" Width="100"/>
-                    <DataGridTextColumn Header="Дата рождения" Binding="{Binding Path=BirthDate}" Width="150"/>
+                    <DataGridTextColumn Header="Дата рождения" Binding="{Binding Path=BirthDate, StringFormat=\{0:dd.MM.yy\}}" Width="100"/>
                     <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}" Width="150"/>
                 </DataGrid.Columns>
                 <DataGrid.RowDetailsTemplate>
@@ -23,14 +23,39 @@
                         <Grid Margin="10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="400" />
+                                <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
                                 <RowDefinition Height="30" />
                             </Grid.RowDefinitions>
 
                             <DockPanel Grid.Row="0" VerticalAlignment="Center" >
-                                <Label Width="100" VerticalContentAlignment="Center" Content="ФИО:"/>
+                                <Label Width="110" VerticalContentAlignment="Center" Content="ФИО:"/>
                                 <TextBlock Text="{Binding Path=FullName}"/>
+                            </DockPanel>
+                            <DockPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" >
+                                <Label Width="110" VerticalContentAlignment="Center" Content="Пол:"/>
+                                <TextBlock Text="{Binding Path=Sex}"/>
+                            </DockPanel>
+
+                            <DockPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" >
+                                <Label Width="110" VerticalContentAlignment="Center" Content="Дата рождения:"/>
+                                <TextBlock Text="{Binding Path=BirthDate, StringFormat=\{0:dd.MM.yy\}}"/>
+                            </DockPanel>
+                            <DockPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" >
+                                <Label Width="110" VerticalContentAlignment="Center" Content="Дата регистрации:"/>
+                                <TextBlock Text="{Binding Path=RegDate, StringFormat=\{0:dd.MM.yy HH:mm:ss\}}"/>
+                            </DockPanel>
+
+                            <DockPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" >
+                                <Label Width="110" VerticalContentAlignment="Center" Content="Телефон:"/>
+                                <TextBlock Text="{Binding Path=Phone}"/>
+                            </DockPanel>
+                            <DockPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" >
+                                <Label Width="110" VerticalContentAlignment="Center" Content="E-mail:"/>
+                                <TextBlock Text="{Binding Path=Email}"/>
                             </DockPanel>
                         </Grid>
                         
