@@ -8,7 +8,7 @@
       Loaded="Window_Loaded">
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Border Grid.Row="1" Background="White">
-            <DataGrid x:Name="cusgrid" AutoGenerateColumns="false" ItemsSource="{Binding}">
+            <DataGrid x:Name="cusgrid" AutoGenerateColumns="false" ItemsSource="{Binding}" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="№" Binding="{Binding Path=Id}" Width="25"/>
                     <DataGridTextColumn Header="Дата регистрации" Binding="{Binding Path=RegDate}" Width="150"/>
