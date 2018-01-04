@@ -4,8 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-      Title="Реестр покупателей"
-      Loaded="Window_Loaded">
+      Title="Реестр покупателей">
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Border Grid.Row="1" Background="White">
             <DataGrid x:Name="cusgrid" AutoGenerateColumns="false" ItemsSource="{Binding}" IsReadOnly="True">
@@ -26,6 +25,7 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
                                 <RowDefinition Height="30" />
                                 <RowDefinition Height="30" />
                                 <RowDefinition Height="30" />
@@ -56,6 +56,10 @@
                             <DockPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" >
                                 <Label Width="110" VerticalContentAlignment="Center" Content="E-mail:"/>
                                 <TextBlock Text="{Binding Path=Email}"/>
+                            </DockPanel>
+
+                            <DockPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button x:Name="EditBtn" Content="Редактировать" Width="100" Click="OnEditRow_ClickHandler"/>
                             </DockPanel>
                         </Grid>
                         

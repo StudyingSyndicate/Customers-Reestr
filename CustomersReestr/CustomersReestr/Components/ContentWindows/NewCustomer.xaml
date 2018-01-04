@@ -43,9 +43,9 @@
 
             <DockPanel Grid.Row="3" VerticalAlignment="Center">
                 <Label Width="100" VerticalContentAlignment="Center" Content="Пол:"/>
-                <ComboBox x:Name="Field_Sex" HorizontalAlignment="Left" Width="80">
-                    <TextBlock>Мужской</TextBlock>
-                    <TextBlock>Женский</TextBlock>
+                <ComboBox x:Name="Field_Sex" HorizontalAlignment="Left" Width="80" SelectedValuePath="Content" SelectedIndex="0">
+                    <ComboBoxItem Content="Мужской"/>
+                    <ComboBoxItem Content="Женский"/>
                 </ComboBox>
             </DockPanel>
             

@@ -115,6 +115,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Components\ContentWindows\EditCustomer.xaml.cs">
+      <DependentUpon>EditCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ContentWindows\IMainWindowFrameWorker.cs" />
     <Compile Include="Components\ContentWindows\NotificationsGrid.xaml.cs">
       <DependentUpon>NotificationsGrid.xaml</DependentUpon>
     </Compile>
@@ -128,6 +132,10 @@
     <Page Include="Components\ContentWindows\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ContentWindows\EditCustomer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Components\ContentWindows\NewCustomer.xaml">
       <SubType>Designer</SubType>

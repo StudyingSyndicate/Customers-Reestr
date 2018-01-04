@@ -1,5 +1,6 @@
-﻿using CustomersReestr.Components.Controllers;
-using System;
+﻿using CustomersReestr.Components.ContentWindows;
+using CustomersReestr.Components.Controllers;
+using CustomersReestr.Components.Models;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -8,30 +9,37 @@ namespace CustomersReestr
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IMainWindowFrameWorker
     {
         public MainWindow()
         {
             InitializeComponent();
             CustomerController.InitDBSomething();
+            NavigateToCustomersGrid();
         }
 
-        private void CustomersGrid_ClickHandler(object sender, RoutedEventArgs e)
+        public void NavigateToEditCustomer(Customers customer)
         {
-            SetFrameSource("CustomersGrid.xaml");
-            SetProgramTitleText(btnCustomersGridLabel.Text);
+            Frame.Navigate(new EditCustomer(customer));
+            SetProgramTitleText(EditCustomer.TITLE_TEXT);
         }
 
-        private void NotificationsGrid_ClickHandler(object sender, RoutedEventArgs e)
+        private void NavigateToCustomersGrid()
         {
-            SetFrameSource("NotificationsGrid.xaml");
-            SetProgramTitleText(btnNotificationsGridLabel.Text);
+            Frame.Navigate(new CustomersGrid(this));
+            SetProgramTitleText(CustomersGrid.TITLE_TEXT);
         }
 
-        private void AddCustomer_ClickHandler(object sender, RoutedEventArgs e)
+        private void NavigateToNotificationsGrid()
         {
-            SetFrameSource("NewCustomer.xaml");
-            SetProgramTitleText(btnNewCustomerLabel.Text);
+            Frame.Navigate(new NotificationsGrid());
+            SetProgramTitleText(NotificationsGrid.TITLE_TEXT);
+        }
+
+        private void NavigateToAddCustomer()
+        {
+            Frame.Navigate(new NewCustomer());
+            SetProgramTitleText(NewCustomer.TITLE_TEXT);
         }
 
         private void SetProgramTitleText(string text)
@@ -39,9 +47,20 @@ namespace CustomersReestr
             ProgramTitle.Text = text;
         }
 
-        private void SetFrameSource(string filename)
+        // Click Handlers
+        private void CustomersGrid_ClickHandler(object sender, RoutedEventArgs e)
         {
-            Frame.Source = new Uri(filename, UriKind.Relative);
+            NavigateToCustomersGrid();
+        }
+
+        private void NotificationsGrid_ClickHandler(object sender, RoutedEventArgs e)
+        {
+            NavigateToNotificationsGrid();
+        }
+
+        private void AddCustomer_ClickHandler(object sender, RoutedEventArgs e)
+        {
+            NavigateToAddCustomer();
         }
     }
 }

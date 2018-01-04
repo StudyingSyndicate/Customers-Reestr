@@ -1,15 +1,21 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using CustomersReestr.Components.Controllers;
+using CustomersReestr.Components.Models;
 
 namespace CustomersReestr
 {
     public partial class CustomersGrid : Page
     {
-        public CustomersGrid()
+        public static string TITLE_TEXT = "Реестр клиентов";
+
+        private MainWindow MainWindow;
+
+        public CustomersGrid(MainWindow mainWindow)
         {
             InitializeComponent();
             FillGrid();
+            MainWindow = mainWindow;
         }
 
         private void FillGrid()
@@ -17,9 +23,10 @@ namespace CustomersReestr
             cusgrid.ItemsSource = CustomerController.GetCustomers();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void OnEditRow_ClickHandler(object sender, RoutedEventArgs e)
         {
-
+            Customers customer = (Customers)cusgrid.SelectedItem;
+            MainWindow.NavigateToEditCustomer(customer);
         }
     }
 }

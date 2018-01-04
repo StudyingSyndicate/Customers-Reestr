@@ -7,12 +7,13 @@ namespace CustomersReestr
 {
     public partial class NewCustomer : Page
     {
+        public static string TITLE_TEXT = "Добавить клиента";
+
         public NewCustomer()
         {
-
             InitializeComponent();
-
         }
+
         private void ClearBoxes()
         {
             Field_Name.Clear();
@@ -23,10 +24,12 @@ namespace CustomersReestr
             Field_Phone.Clear();
             Field_BirthDate.SelectedDate = null;
         }
+
         private void OnSaveBtnClick(object sender, RoutedEventArgs e)
         {
             if (Field_Name.Text == ""
                 || Field_LastName.Text == ""
+                || Field_Sex.Text == ""
                 || Field_BirthDate.SelectedDate == null)
             {
                 MessageBox.Show("Заполните обязательные поля, отмеченныe '*'.");
@@ -44,7 +47,6 @@ namespace CustomersReestr
                 MessageBox.Show("Клиент добавлен");
                 ClearBoxes();
             }
-
         }
     }
 }

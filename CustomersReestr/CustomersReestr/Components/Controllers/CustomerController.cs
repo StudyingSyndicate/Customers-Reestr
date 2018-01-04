@@ -4,6 +4,7 @@ using CustomersReestr.Components.Models;
 using System.Linq;
 using System.Collections.Generic;
 using System.IO;
+using System.Data;
 
 namespace CustomersReestr.Components.Controllers
 {
@@ -30,12 +31,25 @@ namespace CustomersReestr.Components.Controllers
                 Email = email,
                 Phone = phone,
                 BirthDate = birthDate,
-                RegDate = DateTime.Now
+                RegDate = DateTime.Now,
+                LastModified  = DateTime.Now
             };
 
             using (CustomerContext db = new CustomerContext())
             {
                 db.Customers.Add(myNewCustomer);
+                db.SaveChanges();
+            }
+        }
+
+        public static void SaveCustomer(Customers customer)
+        {
+            using (CustomerContext db = new CustomerContext())
+            {
+                customer.LastModified = DateTime.Now;
+
+                db.Customers.Attach(customer);
+                db.Entry(customer).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }

@@ -21,7 +21,7 @@
                 <Border.Effect>
                     <DropShadowEffect/>
                 </Border.Effect>
-                <Frame x:Name="Frame" Source="CustomersGrid.xaml" NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="Frame" NavigationUIVisibility="Hidden"/>
             </Border>
             <Border Grid.Row="1" Background="LightBlue" Grid.RowSpan="2" Padding="0 10">
                 <StackPanel>

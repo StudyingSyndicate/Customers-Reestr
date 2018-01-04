@@ -34,6 +34,8 @@ namespace CustomersReestr.Components.Models
         public DateTime BirthDate { get; set; }
         
         public DateTime RegDate { get; set; }
+        
+        public DateTime LastModified { get; set; }
 
         [NotMapped]
         public string FullName {
