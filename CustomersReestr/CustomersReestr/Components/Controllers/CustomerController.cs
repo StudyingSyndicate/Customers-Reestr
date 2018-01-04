@@ -18,7 +18,7 @@ namespace CustomersReestr.Components.Controllers
             return db.Customers.Local.ToList();
         }
 
-        public static void CreateNewCustomer(string name, string middleName, string lastName, string sex, string email, string phone, DateTime? birthDate)
+        public static void CreateNewCustomer(string name, string middleName, string lastName, string sex, string email, string phone, DateTime birthDate)
         {
             SetInitializerDropDbOnModelChange();
             var myNewCustomer = new Customers

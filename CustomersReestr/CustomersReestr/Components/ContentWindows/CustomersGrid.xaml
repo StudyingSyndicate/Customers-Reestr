@@ -18,6 +18,24 @@
                     <DataGridTextColumn Header="Дата рождения" Binding="{Binding Path=BirthDate}" Width="150"/>
                     <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}" Width="150"/>
                 </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <DockPanel Grid.Row="0" VerticalAlignment="Center" >
+                                <Label Width="100" VerticalContentAlignment="Center" Content="ФИО:"/>
+                                <TextBlock Text="{Binding Path=FullName}"/>
+                            </DockPanel>
+                        </Grid>
+                        
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
             </DataGrid>
         </Border>
     </Grid>

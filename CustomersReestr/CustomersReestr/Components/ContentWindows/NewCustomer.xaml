@@ -27,23 +27,23 @@
             </Grid.RowDefinitions>
 
             <DockPanel Grid.Row="0" VerticalAlignment="Center" >
-                <Label Width="100" VerticalContentAlignment="Center" Content="Фамилия:"/>
-                <TextBox x:Name="InputTextField_LastName"/>
+                <Label Width="100" VerticalContentAlignment="Center" Content="Фамилия*:"/>
+                <TextBox x:Name="Field_LastName"/>
             </DockPanel>
 
             <DockPanel Grid.Row="1" VerticalAlignment="Center" >
-                <Label Width="100" VerticalContentAlignment="Center" Content="Имя:"/>
-                <TextBox x:Name="InputTextField_Name"/>
+                <Label Width="100" VerticalContentAlignment="Center" Content="Имя*:"/>
+                <TextBox x:Name="Field_Name"/>
             </DockPanel>
 
             <DockPanel Grid.Row="2" VerticalAlignment="Center" >
                 <Label Width="100" VerticalContentAlignment="Center" Content="Отчество:"/>
-                <TextBox x:Name="InputTextField_MiddleName"/>
+                <TextBox x:Name="Field_MiddleName"/>
             </DockPanel>
 
             <DockPanel Grid.Row="3" VerticalAlignment="Center">
                 <Label Width="100" VerticalContentAlignment="Center" Content="Пол:"/>
-                <ComboBox x:Name="ComboInputPicker_Sex" HorizontalAlignment="Left" Width="80">
+                <ComboBox x:Name="Field_Sex" HorizontalAlignment="Left" Width="80">
                     <TextBlock>Мужской</TextBlock>
                     <TextBlock>Женский</TextBlock>
                 </ComboBox>
@@ -51,17 +51,17 @@
             
             <DockPanel Grid.Row="4" VerticalAlignment="Center" >
                 <Label Width="100" VerticalContentAlignment="Center" Content="Email:"/>
-                <TextBox x:Name="InputTextField_Email" />
+                <TextBox x:Name="Field_Email" />
             </DockPanel>
 
             <DockPanel Grid.Row="5" VerticalAlignment="Center">
                 <Label Width="100" VerticalContentAlignment="Center" Content="Телефон:"/>
-                <TextBox x:Name="InputTextField_Phone"/>
+                <TextBox x:Name="Field_Phone"/>
             </DockPanel>
 
             <DockPanel Grid.Row="6" VerticalAlignment="Center">
-                <Label Width="100" VerticalContentAlignment="Center" Content="Дата рождения:"/>
-                <DatePicker x:Name="DateTimePicker_BirthDate" HorizontalAlignment="Left" VerticalAlignment="Center"  
+                <Label Width="100" VerticalContentAlignment="Center" Content="Дата рождения*:"/>
+                <DatePicker x:Name="Field_BirthDate" HorizontalAlignment="Left" VerticalAlignment="Center"  
                             SelectedDateFormat="Short" DisplayDateStart="1980-01-01" Width="100"/>
             </DockPanel>
 

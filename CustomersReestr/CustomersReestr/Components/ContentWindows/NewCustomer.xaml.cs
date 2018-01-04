@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using CustomersReestr.Components.Controllers;
 
@@ -14,31 +15,32 @@ namespace CustomersReestr
         }
         private void ClearBoxes()
         {
-            InputTextField_Name.Clear();
-            InputTextField_Email.Clear();
-            InputTextField_Phone.Clear();
-            DateTimePicker_BirthDate.Text = null;
-            ComboInputPicker_Sex.Text = null;
+            Field_Name.Clear();
+            Field_MiddleName.Clear();
+            Field_LastName.Clear();
+            Field_Sex.SelectedItem = null;
+            Field_Email.Clear();
+            Field_Phone.Clear();
+            Field_BirthDate.SelectedDate = null;
         }
         private void OnSaveBtnClick(object sender, RoutedEventArgs e)
         {
-            if (InputTextField_Name.Text == "" 
-                || ComboInputPicker_Sex.Text == "" 
-                || InputTextField_Email.Text == "" 
-                || InputTextField_Phone.Text == "")
+            if (Field_Name.Text == ""
+                || Field_LastName.Text == ""
+                || Field_BirthDate.SelectedDate == null)
             {
-                MessageBox.Show("Заполните все поля");
+                MessageBox.Show("Заполните обязательные поля, отмеченныe '*'.");
             }
             else
             {
                 CustomerController.CreateNewCustomer(
-                               InputTextField_Name.Text,
-                               InputTextField_MiddleName.Text,
-                               InputTextField_LastName.Text,
-                               ComboInputPicker_Sex.Text,
-                               InputTextField_Email.Text,
-                               InputTextField_Phone.Text,
-                               DateTimePicker_BirthDate.SelectedDate);
+                               Field_Name.Text,
+                               Field_MiddleName.Text,
+                               Field_LastName.Text,
+                               Field_Sex.Text,
+                               Field_Email.Text,
+                               Field_Phone.Text,
+                               Field_BirthDate.SelectedDate ?? DateTime.Now);
                 MessageBox.Show("Клиент добавлен");
                 ClearBoxes();
             }
