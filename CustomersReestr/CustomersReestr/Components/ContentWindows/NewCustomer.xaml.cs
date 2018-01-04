@@ -33,6 +33,8 @@ namespace CustomersReestr
             {
                 CustomerController.CreateNewCustomer(
                                InputTextField_Name.Text,
+                               InputTextField_MiddleName.Text,
+                               InputTextField_LastName.Text,
                                ComboInputPicker_Sex.Text,
                                InputTextField_Email.Text,
                                InputTextField_Phone.Text,

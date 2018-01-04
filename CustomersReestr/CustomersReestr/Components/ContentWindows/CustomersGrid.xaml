@@ -3,13 +3,22 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:CustomersReestr"
       mc:Ignorable="d"
       Title="Реестр покупателей"
       Loaded="Window_Loaded">
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Border Grid.Row="1" Background="White">
-            <DataGrid x:Name="cusgrid" AutoGenerateColumns="True"/>
+            <DataGrid x:Name="cusgrid" AutoGenerateColumns="false" ItemsSource="{Binding}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="№" Binding="{Binding Path=Id}" Width="25"/>
+                    <DataGridTextColumn Header="Дата регистрации" Binding="{Binding Path=RegDate}" Width="150"/>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" Width="150"/>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding Path=Name}" Width="100"/>
+                    <DataGridTextColumn Header="Отчество" Binding="{Binding Path=MiddleName}" Width="100"/>
+                    <DataGridTextColumn Header="Дата рождения" Binding="{Binding Path=BirthDate}" Width="150"/>
+                    <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}" Width="150"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Border>
     </Grid>
 </Page>

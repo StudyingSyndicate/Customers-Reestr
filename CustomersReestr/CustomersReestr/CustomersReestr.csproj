@@ -198,6 +198,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Customers.mdf</DependentUpon>
     </Content>
+    <Resource Include="Resources\account-plus.png" />
+    <Resource Include="Resources\bell.png" />
+    <Resource Include="Resources\icon-edit.png" />
     <Resource Include="Resources\datagrid_icon.png" />
   </ItemGroup>
   <ItemGroup>

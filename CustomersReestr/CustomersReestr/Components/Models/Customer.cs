@@ -16,19 +16,28 @@ namespace CustomersReestr.Components.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //автогенерация ИД
         public int Id { get; set; }
-        [Required]
-        public string name { get; set; }
-        [Required] [MaxLength(10)]
-        public string sex { get; set; }
-        [Required] [MaxLength(30)]
-        public string email { get; set; }
-        [Required] [MaxLength(15)]
-        public string phone { get; set; }
-       
-        public DateTime? birthDate { get; set; }
-        
 
-        public DateTime regDate { get; set; }
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        public string MiddleName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+        [Required] [MaxLength(10)]
+        public string Sex { get; set; }
+
+        [Required] [MaxLength(30)]
+        public string Email { get; set; }
+
+        [Required] [MaxLength(15)]
+        public string Phone { get; set; }
+       
+        public DateTime? BirthDate { get; set; }
+        
+        public DateTime RegDate { get; set; }
     }
 }
 

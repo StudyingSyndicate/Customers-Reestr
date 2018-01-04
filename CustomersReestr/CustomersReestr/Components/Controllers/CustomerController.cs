@@ -18,17 +18,19 @@ namespace CustomersReestr.Components.Controllers
             return db.Customers.Local.ToList();
         }
 
-        public static void CreateNewCustomer(string name, string sex, string email, string phone, DateTime? birthDate)
+        public static void CreateNewCustomer(string name, string middleName, string lastName, string sex, string email, string phone, DateTime? birthDate)
         {
             SetInitializerDropDbOnModelChange();
             var myNewCustomer = new Customers
             {
-                name = name,
-                sex = sex,
-                email = email,
-                phone = phone,
-                birthDate = birthDate,
-                regDate = DateTime.Now
+                Name = name,
+                MiddleName = middleName,
+                LastName = lastName,
+                Sex = sex,
+                Email = email,
+                Phone = phone,
+                BirthDate = birthDate,
+                RegDate = DateTime.Now
             };
 
             using (CustomerContext db = new CustomerContext())
