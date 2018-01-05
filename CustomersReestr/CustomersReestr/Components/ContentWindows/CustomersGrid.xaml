@@ -4,17 +4,19 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-      Title="Реестр покупателей">
+      Title="Реестр клиентов">
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Border Grid.Row="1" Background="White">
-            <DataGrid x:Name="cusgrid" AutoGenerateColumns="false" ItemsSource="{Binding}" IsReadOnly="True">
+            <DataGrid x:Name="cusgrid" AutoGenerateColumns="false" ItemsSource="{Binding}" IsReadOnly="True"
+                      AlternatingRowBackground="Gainsboro"  AlternationCount="2">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="№" Binding="{Binding Path=Id}" Width="25"/>
-                    <DataGridTextColumn Header="Дата регистрации" Binding="{Binding Path=RegDate, StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" Width="150"/>
+                    <DataGridTextColumn Header="№" Binding="{Binding Path=Id}" Width="25" SortDirection="Descending"/>
+                    <DataGridTextColumn Header="Дата регистрации" Binding="{Binding Path=RegDate, StringFormat=\{0:dd.MM.yyyy HH:mm:ss\}}" Width="150"/>
                     <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" Width="150"/>
                     <DataGridTextColumn Header="Имя" Binding="{Binding Path=Name}" Width="100"/>
                     <DataGridTextColumn Header="Отчество" Binding="{Binding Path=MiddleName}" Width="100"/>
-                    <DataGridTextColumn Header="Дата рождения" Binding="{Binding Path=BirthDate, StringFormat=\{0:dd.MM.yy\}}" Width="100"/>
+                    <DataGridTextColumn Header="Дата рождения" Binding="{Binding Path=BirthDate, StringFormat=\{0:dd.MM.yyyy\}}" Width="100"/>
+                    <DataGridTextColumn Header="Возраст" Binding="{Binding Path=Age}" Width="100"/>
                     <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}" Width="150"/>
                 </DataGrid.Columns>
                 <DataGrid.RowDetailsTemplate>

@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using CustomersReestr.Components.Controllers;
+using System.Dynamic;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace CustomersReestr.Components.ContentWindows
 {
@@ -14,6 +16,12 @@ namespace CustomersReestr.Components.ContentWindows
         public NotificationsGrid()
         {
             InitializeComponent();
+            FillGrid();
+        }
+
+        private void FillGrid()
+        {
+            grid.ItemsSource = CustomerController.GetNotifications();
         }
     }
 }

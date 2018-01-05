@@ -42,9 +42,29 @@ namespace CustomersReestr.Components.Models
             get {
                 return LastName + " " + Name + " " + MiddleName;
             }
-            set {
-                //do nothing
-            } }
+        }
+
+        [NotMapped]
+        public int Age
+        {
+            get
+            {
+                DateTime today = DateTime.Today;
+                int age = today.Year - BirthDate.Year;
+                if (today < BirthDate.AddYears(age)) // когда текущая дата меньше даты дня рождения, нужно уменьшить получившийся возраст
+                    age--;
+                return age;
+            }
+        }
+
+        [NotMapped]
+        public DateTime NextBirthDate
+        {
+            get
+            {
+                return BirthDate.AddYears(1);
+            }
+        }
     }
 }
 
