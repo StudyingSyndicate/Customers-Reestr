@@ -65,7 +65,7 @@ namespace CustomersReestr.Components.Controllers
             return collectionView;
         }
 
-        private static IQueryable<Customers> GetCustomersInternal(string sort = "")
+        public static IQueryable<Customers> GetCustomersInternal(string sort = "")
         {
             CustomerContext db = new CustomerContext();
             db.Customers.Load();

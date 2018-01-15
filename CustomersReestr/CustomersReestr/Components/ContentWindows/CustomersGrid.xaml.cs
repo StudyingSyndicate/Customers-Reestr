@@ -1,7 +1,11 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using CustomersReestr.Components.Controllers;
 using CustomersReestr.Components.Models;
+
 
 namespace CustomersReestr
 {
@@ -16,6 +20,12 @@ namespace CustomersReestr
             InitializeComponent();
             FillGrid();
             MainWindow = mainWindow;
+            //Тестовый Кусочек, что бы проверить действие экспорта
+            List<Customers> customersList = CustomerController.GetCustomersInternal().ToList();
+
+
+            ExcellController.CreateExcelDocument( customersList,"E:\\Sample.xlsx");
+
         }
 
         private void FillGrid()
