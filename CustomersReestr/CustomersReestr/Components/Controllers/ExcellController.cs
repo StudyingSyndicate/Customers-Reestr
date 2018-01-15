@@ -246,9 +246,5 @@ namespace CustomersReestr.Components.Controllers
 
             return string.Format("{0}{1}", firstChar, secondChar);
         }
-    }
-
-
-       
-          
+    } 
 }
