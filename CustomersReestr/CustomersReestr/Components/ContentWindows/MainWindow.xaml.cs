@@ -1,6 +1,10 @@
 ﻿using CustomersReestr.Components.ContentWindows;
 using CustomersReestr.Components.Controllers;
 using CustomersReestr.Components.Models;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -61,6 +65,14 @@ namespace CustomersReestr
         private void AddCustomer_ClickHandler(object sender, RoutedEventArgs e)
         {
             NavigateToAddCustomer();
+        }
+
+        private void ExcelExport_ClickHandler(object sender, RoutedEventArgs e)
+        {
+            List<Customers> customersList = CustomerController.GetCustomers();
+            string appPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            string fileName = DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss", CultureInfo.InvariantCulture) + ".xlsx";
+            ExcellExportController.CreateExcelDocument(customersList, appPath + "\\" + fileName);
         }
     }
 }

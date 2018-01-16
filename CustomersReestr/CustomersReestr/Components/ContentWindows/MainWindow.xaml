@@ -55,6 +55,16 @@
                             <TextBlock Name="btnNewCustomerLabel" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">Добавить клиента</TextBlock>
                         </Grid>
                     </Button>
+                    <Button x:Name="btnExcelExport" Height="40" Click="ExcelExport_ClickHandler" HorizontalContentAlignment="Left">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="../../Resources/file-excel.png"/>
+                            <TextBlock Name="btnExcelExportLabel" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">Экспорт в Excel</TextBlock>
+                        </Grid>
+                    </Button>
                 </StackPanel>
             </Border>
             <Border Grid.Row="1" Grid.Column="2" Background="LightBlue"/>
