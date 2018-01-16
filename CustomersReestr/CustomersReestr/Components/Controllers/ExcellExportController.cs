@@ -15,7 +15,7 @@ using System.Diagnostics;
 
 namespace CustomersReestr.Components.Controllers
 {
-    class ExcellController
+    class ExcellExportController
     {
         public static bool CreateExcelDocument<T>(List<T> list, string xlsxFilePath)
         {

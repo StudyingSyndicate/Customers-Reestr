@@ -129,7 +129,7 @@
       <DependentUpon>NotificationsGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="Components\Controllers\CustomerController.cs" />
-    <Compile Include="Components\Controllers\ExcellController.cs" />
+    <Compile Include="Components\Controllers\ExcellExportController.cs" />
     <Compile Include="Components\Models\Customer.cs" />
     <Compile Include="Components\Models\CustomerContext.cs" />
     <Compile Include="DBUtil.cs" />

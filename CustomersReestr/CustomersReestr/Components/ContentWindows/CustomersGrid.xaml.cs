@@ -20,8 +20,8 @@ namespace CustomersReestr
             FillGrid();
             MainWindow = mainWindow;
             //Тестовый Кусочек, что бы проверить действие экспорта
-            List<Customers> customersList = CustomerController.GetCustomersInternal().ToList();
-            ExcellController.CreateExcelDocument( customersList,"E:\\Sample.xlsx");
+            List<Customers> customersList = CustomerController.GetCustomers().ToList();
+            ExcellExportController.CreateExcelDocument( customersList,"E:\\Sample.xlsx");
         }
 
         private void FillGrid()

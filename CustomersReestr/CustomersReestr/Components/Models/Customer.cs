@@ -13,7 +13,7 @@ namespace CustomersReestr.Components.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //автогенерация ИД
         public int Id { get; set; }
 
-        [Required]
+        [Required] [Column("Имя")]
         public string Name { get; set; }
 
         public string MiddleName { get; set; }
