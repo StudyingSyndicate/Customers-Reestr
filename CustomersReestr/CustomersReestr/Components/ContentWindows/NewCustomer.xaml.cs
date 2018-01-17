@@ -19,7 +19,7 @@ namespace CustomersReestr
             Field_Name.Clear();
             Field_MiddleName.Clear();
             Field_LastName.Clear();
-            Field_Sex.SelectedItem = null;
+            Field_Sex.SelectedIndex = 0;
             Field_Email.Clear();
             Field_Phone.Clear();
             Field_BirthDate.SelectedDate = null;
