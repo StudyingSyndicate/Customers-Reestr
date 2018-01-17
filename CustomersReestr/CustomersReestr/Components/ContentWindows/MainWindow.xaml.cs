@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 
 namespace CustomersReestr
 {
@@ -52,27 +53,39 @@ namespace CustomersReestr
         }
 
         // Click Handlers
-        private void CustomersGrid_ClickHandler(object sender, RoutedEventArgs e)
+        private void CustomersGrid_ClickHandler(object sender, System.Windows.RoutedEventArgs e)
         {
             NavigateToCustomersGrid();
         }
 
-        private void NotificationsGrid_ClickHandler(object sender, RoutedEventArgs e)
+        private void NotificationsGrid_ClickHandler(object sender, System.Windows.RoutedEventArgs e)
         {
             NavigateToNotificationsGrid();
         }
 
-        private void AddCustomer_ClickHandler(object sender, RoutedEventArgs e)
+        private void AddCustomer_ClickHandler(object sender, System.Windows.RoutedEventArgs e)
         {
             NavigateToAddCustomer();
         }
 
-        private void ExcelExport_ClickHandler(object sender, RoutedEventArgs e)
+        private void ExcelExport_ClickHandler(object sender, System.Windows.RoutedEventArgs e)
         {
             List<Customers> customersList = CustomerController.GetCustomers();
             string appPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             string fileName = DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss", CultureInfo.InvariantCulture) + ".xlsx";
             ExcellExportController.CreateExcelDocument(customersList, appPath + "\\" + fileName);
+
+            ShowMessageOnSuccessExport(appPath + "\\" + fileName);
+        }
+
+        private void ShowMessageOnSuccessExport(string filepath)
+        {
+            string message = "Файл можно найти по адресу:\n"+ filepath + "\n\nСкопировать путь до файла в буфер обмена?";
+            DialogResult dialogResult = System.Windows.Forms.MessageBox.Show(message, "Экспорт в Excel произведен успешно", MessageBoxButtons.YesNo);
+
+            if (dialogResult == System.Windows.Forms.DialogResult.Yes)
+                System.Windows.Clipboard.SetText(filepath);
+
         }
     }
 }

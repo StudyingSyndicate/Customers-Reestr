@@ -47,7 +47,7 @@ namespace CustomersReestr
                                Field_Email.Text,
                                Field_Phone.Text,
                                Field_BirthDate.SelectedDate ?? DateTime.Now);
-                ShowMessageAfterSave();    
+                ShowMessageAfterSave();
             }
         }
 
