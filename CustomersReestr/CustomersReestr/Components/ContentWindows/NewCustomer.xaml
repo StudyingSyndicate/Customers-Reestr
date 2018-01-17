@@ -62,7 +62,7 @@
             <DockPanel Grid.Row="6" VerticalAlignment="Center">
                 <Label Width="100" VerticalContentAlignment="Center" Content="Дата рождения*:"/>
                 <DatePicker x:Name="Field_BirthDate" HorizontalAlignment="Left" VerticalAlignment="Center"  
-                            SelectedDateFormat="Short" DisplayDateStart="1980-01-01" Width="100"/>
+                            SelectedDateFormat="Short" DisplayDateStart="1900-01-01" Width="100"/>
             </DockPanel>
 
             <DockPanel Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right">

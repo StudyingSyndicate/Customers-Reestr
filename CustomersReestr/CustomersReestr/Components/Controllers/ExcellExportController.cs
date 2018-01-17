@@ -1,16 +1,10 @@
 ﻿using System;
-//using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
-using System.Data.Objects;
-using System.Data.EntityClient;
-using System.Linq;
 using System.Data;
-using System.Data.SqlClient;
 using System.Collections.Generic;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml;
-using CustomersReestr.Components.Models;
 using System.Diagnostics;
 
 namespace CustomersReestr.Components.Controllers
