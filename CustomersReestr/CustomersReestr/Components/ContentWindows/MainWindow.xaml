@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Реестр клиентов" Height="800" Width="1200"
-        Icon="../../Resources/datagrid_icon.png">
+        Icon="../../Resources/datagrid_icon.png" Background="#FFFDB889">
     <Grid>
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid.RowDefinitions>
