@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using CustomersReestr.Components.Controllers;
 
 namespace CustomersReestr
@@ -9,9 +9,12 @@ namespace CustomersReestr
     {
         public static string TITLE_TEXT = "Добавить клиента";
 
-        public NewCustomer()
+        private MainWindow mainWindow;
+
+        public NewCustomer(MainWindow inputMainWindow)
         {
             InitializeComponent();
+            mainWindow = inputMainWindow;
         }
 
         private void ClearBoxes()
@@ -25,7 +28,7 @@ namespace CustomersReestr
             Field_BirthDate.SelectedDate = null;
         }
 
-        private void OnSaveBtnClick(object sender, RoutedEventArgs e)
+        private void OnSaveBtnClick(object sender, System.Windows.RoutedEventArgs e)
         {
             if (Field_Name.Text == ""
                 || Field_LastName.Text == ""
@@ -44,8 +47,24 @@ namespace CustomersReestr
                                Field_Email.Text,
                                Field_Phone.Text,
                                Field_BirthDate.SelectedDate ?? DateTime.Now);
-                MessageBox.Show("Клиент добавлен");
-                ClearBoxes();
+                ShowMessageAfterSave();    
+            }
+        }
+
+        private void ShowMessageAfterSave()
+        {
+            string message = "Клиент добавлен.\nХотите добавить еще одного клиента?";
+            DialogResult dialogResult = MessageBox.Show(message, "Информация", MessageBoxButtons.YesNo);
+            
+            switch (dialogResult)
+            {
+                case DialogResult.Yes:
+                    ClearBoxes();
+                    break;
+
+                case DialogResult.No:
+                    mainWindow.NavigateToCustomersGrid();
+                    break;
             }
         }
     }

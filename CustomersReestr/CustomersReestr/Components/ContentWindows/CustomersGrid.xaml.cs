@@ -9,13 +9,13 @@ namespace CustomersReestr
     {
         public static string TITLE_TEXT = "Реестр клиентов";
 
-        private MainWindow MainWindow;
+        private MainWindow mainWindow;
 
-        public CustomersGrid(MainWindow mainWindow)
+        public CustomersGrid(MainWindow inputMainWindow)
         {
             InitializeComponent();
             FillGrid();
-            MainWindow = mainWindow;
+            mainWindow = inputMainWindow;
         }
 
         private void FillGrid()
@@ -26,7 +26,7 @@ namespace CustomersReestr
         private void OnEditRow_ClickHandler(object sender, RoutedEventArgs e)
         {
             Customers customer = (Customers)cusgrid.SelectedItem;
-            MainWindow.NavigateToEditCustomer(customer);
+            mainWindow.NavigateToEditCustomer(customer);
         }
     }
 }

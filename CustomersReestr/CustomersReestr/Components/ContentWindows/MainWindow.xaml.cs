@@ -24,11 +24,11 @@ namespace CustomersReestr
 
         public void NavigateToEditCustomer(Customers customer)
         {
-            Frame.Navigate(new EditCustomer(customer));
+            Frame.Navigate(new EditCustomer(customer, this));
             SetProgramTitleText(EditCustomer.TITLE_TEXT);
         }
 
-        private void NavigateToCustomersGrid()
+        public void NavigateToCustomersGrid()
         {
             Frame.Navigate(new CustomersGrid(this));
             SetProgramTitleText(CustomersGrid.TITLE_TEXT);
@@ -42,7 +42,7 @@ namespace CustomersReestr
 
         private void NavigateToAddCustomer()
         {
-            Frame.Navigate(new NewCustomer());
+            Frame.Navigate(new NewCustomer(this));
             SetProgramTitleText(NewCustomer.TITLE_TEXT);
         }
 
