@@ -5,5 +5,6 @@ namespace CustomersReestr.Components.ContentWindows
     interface IMainWindowFrameWorker
     {
         void NavigateToEditCustomer(Customers customer);
+        void NavigateToCustomersGrid();
     }
 }

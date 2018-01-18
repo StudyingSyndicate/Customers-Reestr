@@ -62,7 +62,8 @@ namespace CustomersReestr.Components.Models
         {
             get
             {
-                return BirthDate.AddYears(1);
+                DateTime nextBirthDate = BirthDate.AddYears(DateTime.Today.Year - BirthDate.Year);
+                return nextBirthDate > DateTime.Today ? nextBirthDate : nextBirthDate.AddYears(1);
             }
         }
     }

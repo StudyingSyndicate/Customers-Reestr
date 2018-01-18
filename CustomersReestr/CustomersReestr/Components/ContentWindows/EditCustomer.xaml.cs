@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Controls;
 using CustomersReestr.Components.Controllers;
 using CustomersReestr.Components.Models;
@@ -11,11 +11,13 @@ namespace CustomersReestr
         public static string TITLE_TEXT = "Редактировать клиента";
 
         private Customers currentCustomer;
+        private MainWindow mainWindow;
 
-        public EditCustomer(Customers customer)
+        public EditCustomer(Customers customer, MainWindow inputMainWindow)
         {
             InitializeComponent();
             SetFields(customer);
+            mainWindow = inputMainWindow;
         }
 
         private void SetFields(Customers customer)
@@ -76,7 +78,7 @@ namespace CustomersReestr
             Field_BirthDate.SelectedDate = null;
         }
 
-        private void OnSaveBtnClick(object sender, RoutedEventArgs e)
+        private void OnSaveBtnClick(object sender, System.Windows.RoutedEventArgs e)
         {
             if (Field_Name.Text == ""
                 || Field_LastName.Text == ""
@@ -89,9 +91,20 @@ namespace CustomersReestr
             {
                 Customers customer = GetCustomer();
                 CustomerController.SaveCustomer(customer);
-                MessageBox.Show("Клиент отредактирован.\nХотите открыть реестр клиентов?"); // ToDo: сделать кнопки перехода в реестр клиентов
+
+                ShowMessageAfterSave();
             }
 
+        }
+
+        private void ShowMessageAfterSave()
+        {
+            string message = "Клиент отредактирован.\nХотите открыть реестр клиентов?";
+            DialogResult dialogResult = MessageBox.Show(message, "Информация", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                mainWindow.NavigateToCustomersGrid();
+            }
         }
     }
 }
