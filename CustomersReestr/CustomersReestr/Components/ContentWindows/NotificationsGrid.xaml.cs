@@ -1,7 +1,5 @@
 ﻿using CustomersReestr.Components.Controllers;
-using System.Dynamic;
 using System.Windows.Controls;
-using System.Windows.Data;
 
 namespace CustomersReestr.Components.ContentWindows
 {
