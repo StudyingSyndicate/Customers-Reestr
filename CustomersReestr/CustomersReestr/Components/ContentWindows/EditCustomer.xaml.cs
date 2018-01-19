@@ -10,17 +10,17 @@ namespace CustomersReestr
     {
         public static string TITLE_TEXT = "Редактировать клиента";
 
-        private Customers currentCustomer;
+        private Customer currentCustomer;
         private MainWindow mainWindow;
 
-        public EditCustomer(Customers customer, MainWindow inputMainWindow)
+        public EditCustomer(Customer customer, MainWindow inputMainWindow)
         {
             InitializeComponent();
             SetFields(customer);
             mainWindow = inputMainWindow;
         }
 
-        private void SetFields(Customers customer)
+        private void SetFields(Customer customer)
         {
             currentCustomer = customer;
 
@@ -34,7 +34,7 @@ namespace CustomersReestr
             Field_BirthDate.SelectedDate = currentCustomer.BirthDate;
         }
 
-        private Customers GetCustomer()
+        private Customer GetCustomer()
         {
             if (currentCustomer.Name != Field_Name.Text)
             {
@@ -89,7 +89,7 @@ namespace CustomersReestr
             }
             else
             {
-                Customers customer = GetCustomer();
+                Customer customer = GetCustomer();
                 CustomerController.SaveCustomer(customer);
 
                 ShowMessageAfterSave();

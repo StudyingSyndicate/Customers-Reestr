@@ -8,7 +8,7 @@ namespace CustomersReestr.Components.Models
      * можно прописать почти все, что создается в SQL*/
 
 {
-   public class Customers
+   public class Customer
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //автогенерация ИД
         public int Id { get; set; }

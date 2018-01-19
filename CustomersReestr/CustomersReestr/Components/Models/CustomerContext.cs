@@ -13,6 +13,6 @@ namespace CustomersReestr.Components.Models
         {
 
         }
-        public DbSet<Customers> Customers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }

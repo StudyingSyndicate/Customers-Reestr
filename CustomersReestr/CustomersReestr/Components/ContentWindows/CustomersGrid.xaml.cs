@@ -25,7 +25,7 @@ namespace CustomersReestr
 
         private void OnEditRow_ClickHandler(object sender, RoutedEventArgs e)
         {
-            Customers customer = (Customers)cusgrid.SelectedItem;
+            Customer customer = (Customer)cusgrid.SelectedItem;
             mainWindow.NavigateToEditCustomer(customer);
         }
     }

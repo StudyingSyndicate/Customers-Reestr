@@ -4,7 +4,7 @@ namespace CustomersReestr.Components.ContentWindows
 {
     interface IMainWindowFrameWorker
     {
-        void NavigateToEditCustomer(Customers customer);
+        void NavigateToEditCustomer(Customer customer);
         void NavigateToCustomersGrid();
     }
 }

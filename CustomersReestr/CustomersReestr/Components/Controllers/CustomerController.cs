@@ -12,7 +12,7 @@ namespace CustomersReestr.Components.Controllers
 {
     class CustomerController
     {
-        public static List<Customers> GetCustomers()
+        public static List<Customer> GetCustomers()
         {
             SetInitializerDropDbOnModelChange();
             return GetCustomersInternal().ToList();
@@ -21,7 +21,7 @@ namespace CustomersReestr.Components.Controllers
         public static void CreateNewCustomer(string name, string middleName, string lastName, string sex, string email, string phone, DateTime birthDate)
         {
             SetInitializerDropDbOnModelChange();
-            var myNewCustomer = new Customers
+            var myNewCustomer = new Customer
             {
                 Name = name,
                 MiddleName = middleName,
@@ -41,7 +41,7 @@ namespace CustomersReestr.Components.Controllers
             }
         }
 
-        public static void SaveCustomer(Customers customer)
+        public static void SaveCustomer(Customer customer)
         {
             using (CustomerContext db = new CustomerContext())
             {
@@ -55,7 +55,7 @@ namespace CustomersReestr.Components.Controllers
 
         public static ListCollectionView GetNotifications()
         {
-            List<Customers> customersList = GetCustomersInternal().ToList();
+            List<Customer> customersList = GetCustomersInternal().ToList();
             ListCollectionView collectionView = new ListCollectionView(customersList);
 
             collectionView.SortDescriptions.Clear();
@@ -65,12 +65,12 @@ namespace CustomersReestr.Components.Controllers
             return collectionView;
         }
 
-        private static IQueryable<Customers> GetCustomersInternal(string sort = "")
+        private static IQueryable<Customer> GetCustomersInternal(string sort = "")
         {
             CustomerContext db = new CustomerContext();
             db.Customers.Load();
 
-            IQueryable<Customers> customers = from customer in db.Customers
+            IQueryable<Customer> customers = from customer in db.Customers
                                               select customer;
 
             customers = SorCustomers(customers, sort);
@@ -78,7 +78,7 @@ namespace CustomersReestr.Components.Controllers
             return customers;
         }
 
-        private static IQueryable<Customers> SorCustomers(IQueryable<Customers> customers, string sort)
+        private static IQueryable<Customer> SorCustomers(IQueryable<Customer> customers, string sort)
         {
             switch (sort)
             {

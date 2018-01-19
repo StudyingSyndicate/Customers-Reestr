@@ -23,7 +23,7 @@ namespace CustomersReestr
             NavigateToCustomersGrid();
         }
 
-        public void NavigateToEditCustomer(Customers customer)
+        public void NavigateToEditCustomer(Customer customer)
         {
             Frame.Navigate(new EditCustomer(customer, this));
             SetProgramTitleText(EditCustomer.TITLE_TEXT);
@@ -70,7 +70,7 @@ namespace CustomersReestr
 
         private void ExcelExport_ClickHandler(object sender, System.Windows.RoutedEventArgs e)
         {
-            List<Customers> customersList = CustomerController.GetCustomers();
+            List<Customer> customersList = CustomerController.GetCustomers();
             string appPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             string fileName = DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss", CultureInfo.InvariantCulture) + ".xlsx";
             ExcellExportController.CreateExcelDocument(customersList, appPath + "\\" + fileName);
