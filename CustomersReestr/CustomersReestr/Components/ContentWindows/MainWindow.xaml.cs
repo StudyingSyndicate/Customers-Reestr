@@ -2,9 +2,6 @@
 using CustomersReestr.Components.Controllers;
 using CustomersReestr.Components.Models;
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
@@ -70,22 +67,28 @@ namespace CustomersReestr
 
         private void ExcelExport_ClickHandler(object sender, System.Windows.RoutedEventArgs e)
         {
-            List<Customer> customersList = CustomerController.GetCustomers();
-            string appPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            string fileName = DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss", CultureInfo.InvariantCulture) + ".xlsx";
-            ExcellExportController.CreateExcelDocument(customersList, appPath + "\\" + fileName);
-
-            ShowMessageOnSuccessExport(appPath + "\\" + fileName);
+            try
+            {
+                string folder = FileController.GetFolderFromChooserDialog();
+                bool result = ExcellExportController.CustomersExportToExcel(folder);
+                if (result)
+                    ShowMessageOnSuccessExport();
+            }
+            catch (ArgumentException exc) when (exc.ParamName == FileController.NULL_FOLDER_ERROR)
+            {
+                System.Windows.MessageBox.Show("Не задана папка для экспорта.", "Ошибка");
+                return;
+            }
+            catch (ArgumentException exc) when (exc.ParamName == ExcellExportController.EXCEL_EXPORT_ERROR)
+            {
+                System.Windows.MessageBox.Show("Не удалось выполнить экспорт.", "Ошибка");
+                return;
+            }
         }
-
-        private void ShowMessageOnSuccessExport(string filepath)
+        
+        private void ShowMessageOnSuccessExport()
         {
-            string message = "Файл можно найти по адресу:\n"+ filepath + "\n\nСкопировать путь до файла в буфер обмена?";
-            DialogResult dialogResult = System.Windows.Forms.MessageBox.Show(message, "Экспорт в Excel произведен успешно", MessageBoxButtons.YesNo);
-
-            if (dialogResult == System.Windows.Forms.DialogResult.Yes)
-                System.Windows.Clipboard.SetText(filepath);
-
-        }
+            System.Windows.Forms.MessageBox.Show("Экспорт в Excel произведен успешно", "Экспорт в Excel", MessageBoxButtons.OK);
+        }   
     }
 }

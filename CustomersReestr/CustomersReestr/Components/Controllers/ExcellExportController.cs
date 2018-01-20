@@ -6,11 +6,30 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml;
 using System.Diagnostics;
+using CustomersReestr.Components.Models;
 
 namespace CustomersReestr.Components.Controllers
 {
     class ExcellExportController
     {
+        public const string EXCEL_EXPORT_ERROR = "excelExportError";
+
+        public static bool CustomersExportToExcel(string filepath)
+        {
+            if (string.IsNullOrEmpty(filepath))
+                return false;
+
+            List<Customer> customersList = CustomerController.GetCustomers();
+            string fileName = FileController.GetFileNameCurrentDateTime("xlsx");
+
+            string fullPath = filepath + "\\" + fileName;
+            bool result = CreateExcelDocument(customersList, fullPath);
+
+            if (!result) throw new ArgumentException("", EXCEL_EXPORT_ERROR);
+
+            return true;
+        }
+
         public static bool CreateExcelDocument<T>(List<T> list, string xlsxFilePath)
         {
             DataSet ds = new DataSet();
