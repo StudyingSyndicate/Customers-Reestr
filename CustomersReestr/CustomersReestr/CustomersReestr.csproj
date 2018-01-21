@@ -189,6 +189,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\Fonts\AGReverence.TTF" />
+    <Resource Include="Resources\Fonts\Arkhive.ttf" />
+    <Resource Include="Resources\Fonts\Bankir-Retro.ttf" />
+    <Resource Include="Resources\Fonts\Contlin.TTF" />
+    <Resource Include="Resources\Fonts\Country Western Open.ttf" />
+    <Resource Include="Resources\Fonts\LazurskiCTT.Ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

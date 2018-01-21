@@ -5,6 +5,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace CustomersReestr
 {
@@ -18,6 +19,7 @@ namespace CustomersReestr
             InitializeComponent();
             CustomerController.InitDBSomething();
             NavigateToCustomersGrid();
+            //ProgramTitle.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./Resources/Fonts/#Cotlin");
         }
 
         public void NavigateToEditCustomer(Customer customer)
