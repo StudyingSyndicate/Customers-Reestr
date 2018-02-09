@@ -13,7 +13,7 @@ namespace CustomersReestr.Components.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //автогенерация ИД
         public int Id { get; set; }
 
-        [Required] [Column("Имя")]
+        [Required] 
         public string Name { get; set; }
 
         public string MiddleName { get; set; }
@@ -21,13 +21,12 @@ namespace CustomersReestr.Components.Models
         [Required]
         public string LastName { get; set; }
 
-        [Required] [MaxLength(10)]
+        [Required] 
         public string Sex { get; set; }
-
-        [MaxLength(30)]
+        
         public string Email { get; set; }
 
-        [MaxLength(15)]
+      
         public string Phone { get; set; }
 
         [Required]

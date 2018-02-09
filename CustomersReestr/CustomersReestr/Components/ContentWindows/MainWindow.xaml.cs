@@ -91,6 +91,12 @@ namespace CustomersReestr
         private void ShowMessageOnSuccessExport()
         {
             System.Windows.Forms.MessageBox.Show("Экспорт в Excel произведен успешно", "Экспорт в Excel", MessageBoxButtons.OK);
-        }   
+        }
+
+        private  void ExcelImport_ClickHandler(object sender, RoutedEventArgs e)
+        {
+            FileController.ImportFileExcel();
+
+        }
     }
 }

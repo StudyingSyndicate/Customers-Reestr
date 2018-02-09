@@ -66,6 +66,16 @@
                             <TextBlock Name="btnExcelExportLabel" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">Экспорт в Excel</TextBlock>
                         </Grid>
                     </Button>
+                    <Button x:Name="btnExcelExport_Copy" Click="ExcelImport_ClickHandler" HorizontalContentAlignment="Left" Height="40">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="/CustomersReestr;component/Resources/file-excel.png"/>
+                            <TextBlock x:Name="btnExcelExportLabel1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"><Run Text="Импорт "/><Run Text="Excel"/></TextBlock>
+                        </Grid>
+                    </Button>
                 </StackPanel>
             </Border>
             <Border Grid.Row="1" Grid.Column="2" Background="#19FF6901"/>
