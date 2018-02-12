@@ -1,4 +1,5 @@
 ﻿using CustomersReestr.Components.Models;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -12,7 +13,7 @@ namespace CustomersReestr.Components.Controllers
 {
     class ExcelImportController
     {
-        private const int CUSTOMER_FIELDS_COUNT = 7;
+        private const int CUSTOMER_FIELDS_COUNT = 10;
 
         public const String IMPORT_TYPE_CUSTOMER = "Customer";
 
@@ -82,13 +83,13 @@ namespace CustomersReestr.Components.Controllers
             {
                 Customer customer = new Customer
                 {
-                    Name = (String)values[1],
-                    MiddleName = (String)values[2],
-                    LastName = (String)values[3],
-                    Sex = (String)values[4],
-                    Email = (String)values[5],
-                    Phone = (String)values[6],
-                   
+                    Name = (String)values[0],
+                    MiddleName = (String)values[1],
+                    LastName = (String)values[2],
+                    Sex = (String)values[3],
+                    Email = (String)values[4],
+                    Phone = (String)values[5],
+                    BirthDate=(DateTime)values[6],
 
                 };
 

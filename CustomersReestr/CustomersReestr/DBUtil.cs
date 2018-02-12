@@ -21,22 +21,22 @@ namespace CustomersReestr
 
             return settings != null ? settings.ConnectionString : null;
         }
-        public static void CheckConnection()
-        {
-            SqlConnection cnn;
-            cnn = new SqlConnection(GetConnectionString());
-            try
-            {
-                cnn.Open();
-                MessageBox.Show("Connection Open ! ");
-                cnn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Can not open connection ! Error: " + ex.Message);
-                throw ex;
-            }
-        }
+       // public static void CheckConnection()
+       // {
+         //   SqlConnection cnn;
+           // cnn = new SqlConnection(GetConnectionString());
+            //try
+            //{
+              //  cnn.Open();
+               // MessageBox.Show("Connection Open ! ");
+               // cnn.Close();
+            //}
+            //catch (Exception ex)
+           // {
+               // MessageBox.Show("Can not open connection ! Error: " + ex.Message);
+               // throw ex;
+           // }
+        //*}
     }
 
 }

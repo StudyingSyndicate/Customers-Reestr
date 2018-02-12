@@ -8,6 +8,7 @@ using System.Data;
 using System.Windows.Data;
 using System.ComponentModel;
 using System.Data.Entity.Validation;
+using System.Data.Entity.Migrations;
 
 namespace CustomersReestr.Components.Controllers
 {
@@ -52,7 +53,7 @@ namespace CustomersReestr.Components.Controllers
                 db.Entry(customer).State = EntityState.Modified;
                 try
                 {
-
+                    db.Customers.AddOrUpdate(customer);
                     db.SaveChanges();
 
                 }
@@ -125,5 +126,6 @@ namespace CustomersReestr.Components.Controllers
             absolute = Path.GetDirectoryName(@absolute);
             AppDomain.CurrentDomain.SetData("DataDirectory", absolute);
         }
+
     }
 }
