@@ -19,24 +19,8 @@ namespace CustomersReestr
             //ConfigurationManager.ConnectionStrings["CustomersReestr.Properties.Settings.CustomersConnectionString"];
             ConfigurationManager.ConnectionStrings["CustomersEntities"];
 
-            return settings != null ? settings.ConnectionString : null;
+            return settings?.ConnectionString;
         }
-       // public static void CheckConnection()
-       // {
-         //   SqlConnection cnn;
-           // cnn = new SqlConnection(GetConnectionString());
-            //try
-            //{
-              //  cnn.Open();
-               // MessageBox.Show("Connection Open ! ");
-               // cnn.Close();
-            //}
-            //catch (Exception ex)
-           // {
-               // MessageBox.Show("Can not open connection ! Error: " + ex.Message);
-               // throw ex;
-           // }
-        //*}
     }
 
 }
