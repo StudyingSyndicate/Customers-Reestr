@@ -48,7 +48,7 @@ namespace CustomersReestr.Components.Models
         {
             get
             {
-                DateTime today = DateTime.Today;
+                DateTime today = DateTime.Now;
                 int age = today.Year - BirthDate.Year;
                 if (today < BirthDate.AddYears(age)) // когда текущая дата меньше даты дня рождения, нужно уменьшить получившийся возраст
                     age--;

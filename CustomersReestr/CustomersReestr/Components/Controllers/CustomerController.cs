@@ -7,8 +7,7 @@ using System.IO;
 using System.Data;
 using System.Windows.Data;
 using System.ComponentModel;
-using System.Data.Entity.Validation;
-using System.Data.Entity.Migrations;
+using System.Windows.Forms;
 
 namespace CustomersReestr.Components.Controllers
 {
@@ -38,8 +37,16 @@ namespace CustomersReestr.Components.Controllers
 
             using (CustomerContext db = new CustomerContext())
             {
-                db.Customers.Add(myNewCustomer);
-                db.SaveChanges();
+                try
+                {
+                    db.Customers.Add(myNewCustomer);
+                    db.SaveChanges();
+                }
+                catch (DataException ex)
+                {
+                    MessageBox.Show("Произошла ошибка: " + ex.Message);
+                    throw;
+                }
             }
         }
 
@@ -53,22 +60,11 @@ namespace CustomersReestr.Components.Controllers
                 db.Entry(customer).State = EntityState.Modified;
                 try
                 {
-                    db.Customers.AddOrUpdate(customer);
                     db.SaveChanges();
-
                 }
-                catch (DbEntityValidationException e)
+                catch (DataException ex)
                 {
-                    foreach (var eve in e.EntityValidationErrors)
-                    {
-                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                        foreach (var ve in eve.ValidationErrors)
-                        {
-                            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                                ve.PropertyName, ve.ErrorMessage);
-                        }
-                    }
+                    MessageBox.Show("Произошла ошибка: " + ex.Message);
                     throw;
                 }
             }
@@ -126,6 +122,5 @@ namespace CustomersReestr.Components.Controllers
             absolute = Path.GetDirectoryName(@absolute);
             AppDomain.CurrentDomain.SetData("DataDirectory", absolute);
         }
-
     }
 }

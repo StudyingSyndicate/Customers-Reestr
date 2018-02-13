@@ -177,7 +177,6 @@
     <Compile Include="Components\Controllers\FileController.cs" />
     <Compile Include="Components\Models\Customer.cs" />
     <Compile Include="Components\Models\CustomerContext.cs" />
-    <Compile Include="DBUtil.cs" />
     <Compile Include="Components\ContentWindows\CustomersGrid.xaml.cs">
       <DependentUpon>CustomersGrid.xaml</DependentUpon>
     </Compile>
@@ -205,6 +204,7 @@
     <Compile Include="Components\ContentWindows\NewCustomer.xaml.cs">
       <DependentUpon>NewCustomer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\Utils\DateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -5,7 +5,6 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
-using System.Windows.Media;
 
 namespace CustomersReestr
 {
@@ -79,12 +78,10 @@ namespace CustomersReestr
             catch (ArgumentException exc) when (exc.ParamName == FileController.NULL_FOLDER_ERROR)
             {
                 System.Windows.MessageBox.Show("Не задана папка для экспорта.", "Ошибка");
-                return;
             }
             catch (ArgumentException exc) when (exc.ParamName == ExcellExportController.EXCEL_EXPORT_ERROR)
             {
                 System.Windows.MessageBox.Show("Не удалось выполнить экспорт.", "Ошибка");
-                return;
             }
         }
         
@@ -92,11 +89,33 @@ namespace CustomersReestr
         {
             System.Windows.Forms.MessageBox.Show("Экспорт в Excel произведен успешно", "Экспорт в Excel", MessageBoxButtons.OK);
         }
-
+        
         private  void ExcelImport_ClickHandler(object sender, RoutedEventArgs e)
         {
-            FileController.ImportFileExcel();
+            try
+            {
+                Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+                dlg.FileName = "Document"; // Default file name
+                dlg.Filter = "Файлы Excel (*.xls; *.xlsx) | *.xls; *.xlsx"; // Filter files by extension
 
+                Nullable<bool> result = dlg.ShowDialog();
+
+                if (result == true)
+                {
+                    ExcelImportController.Import(dlg.FileName, ExcelImportController.IMPORT_TYPE_CUSTOMER);
+                    ShowMessageOnSuccessImport(dlg.FileName);
+                    NavigateToCustomersGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show("Не удалось выполнить импорт.\nТекст ошибки: " + ex.Message, "Ошибка");
+            }
+        }
+
+        private void ShowMessageOnSuccessImport(string filename)
+        {
+            System.Windows.Forms.MessageBox.Show("Клиенты из файла '" + filename + "' успешно загружены.", "Импорт из Excel", MessageBoxButtons.OK);
         }
     }
 }
