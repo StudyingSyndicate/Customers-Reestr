@@ -79,22 +79,22 @@ namespace CustomersReestr.Components.Controllers
 
         private static void ImportCustomerString(object[] values)
         {
-            for (int i = 0; i < CUSTOMER_FIELDS_COUNT; i++)
-            {
+            //for (int i = 0; i < CUSTOMER_FIELDS_COUNT; i++)
+            //{
                 Customer customer = new Customer
                 {
-                    Name = (String)values[1],
-                    MiddleName = (String)values[2],
-                    LastName = (String)values[3],
-                    Sex = (String)values[4],
-                    Email = (String)values[5],
-                    Phone = (String)values[6],
-                    BirthDate=(DateTime)values[7],
+                    Name = (String)values[0],
+                    MiddleName = (String)values[1],
+                    LastName = (String)values[2],
+                    Sex = (String)values[3],
+                    Email = (String)values[4],
+                    Phone = (String)values[5],
+                    BirthDate=DateTime.Now,
 
                 };
 
                 CustomerController.SaveCustomer(customer);
-            }
+            //}
         }
     }
 }
