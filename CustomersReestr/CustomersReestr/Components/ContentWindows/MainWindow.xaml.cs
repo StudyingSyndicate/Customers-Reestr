@@ -13,6 +13,8 @@ namespace CustomersReestr
     /// </summary>
     public partial class MainWindow : Window, IMainWindowFrameWorker
     {
+        const string exceltype = "Файлы Excel (*.xls; *.xlsx) | *.xls; *.xlsx";
+        const string defaultfilename = "Document";
         public MainWindow()
         {
             InitializeComponent();
@@ -95,8 +97,8 @@ namespace CustomersReestr
             try
             {
                 Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-                dlg.FileName = "Document"; // Default file name
-                dlg.Filter = "Файлы Excel (*.xls; *.xlsx) | *.xls; *.xlsx"; // Filter files by extension
+                dlg.FileName = defaultfilename; // Default file name
+                dlg.Filter = exceltype; // Filter files by extension
 
                 Nullable<bool> result = dlg.ShowDialog();
 

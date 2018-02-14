@@ -8,6 +8,9 @@ using System.Data;
 using System.Windows.Data;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Data.Entity.Migrations;
+using System.Data.Common;
+using CustomersReestr.Components.Utils;
 
 namespace CustomersReestr.Components.Controllers
 {
@@ -60,6 +63,7 @@ namespace CustomersReestr.Components.Controllers
                 db.Entry(customer).State = EntityState.Modified;
                 try
                 {
+                    
                     db.SaveChanges();
                 }
                 catch (DataException ex)
@@ -121,6 +125,31 @@ namespace CustomersReestr.Components.Controllers
             string absolute = Path.GetFullPath(relative);
             absolute = Path.GetDirectoryName(@absolute);
             AppDomain.CurrentDomain.SetData("DataDirectory", absolute);
+        }
+        public static void ImportCustomerString(DbDataReader reader)
+        {
+            string Name = reader.GetString(1);
+            string MiddleName = reader.GetString(2);
+            string LastName = reader.GetString(3);
+            string Sex = reader.GetString(4);
+            string Email = reader.GetString(5);
+            string Phone = reader.GetString(6);
+            DateTime BirthDate = DateHelper.ParseRusDateTime(reader.GetString(7));
+            Guid guid = Guid.Parse(reader.GetString(8));
+            using (CustomerContext db = new CustomerContext())
+            {
+                Customer customer = db.Customers.Find(guid);
+                if (customer != null)
+                {
+                    db.Customers.Attach(customer);
+                    db.Entry(customer).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+
+                else
+                    CustomerController.CreateNewCustomer(Name, MiddleName, LastName, Sex, Email, Phone, BirthDate);
+            }
         }
     }
 }

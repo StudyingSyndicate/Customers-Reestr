@@ -31,10 +31,16 @@ namespace CustomersReestr.Components.Models
 
         [Required]
         public DateTime BirthDate { get; set; }
-        
+
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Guid { get; set; }
+
         public DateTime RegDate { get; set; }
         
         public DateTime LastModified { get; set; }
+
+        
 
         [NotMapped]
         public string FullName {

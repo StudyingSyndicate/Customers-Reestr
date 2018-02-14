@@ -1,6 +1,8 @@
-﻿using CustomersReestr.Components.Utils;
+﻿using CustomersReestr.Components.Models;
+using CustomersReestr.Components.Utils;
 using System;
 using System.Data.Common;
+using System.Data.Entity.Migrations;
 using System.Data.OleDb;
 
 namespace CustomersReestr.Components.Controllers
@@ -28,7 +30,7 @@ namespace CustomersReestr.Components.Controllers
                         switch(importType)
                         {
                             case IMPORT_TYPE_CUSTOMER:
-                                ImportCustomerString(reader);
+                                CustomerController.ImportCustomerString(reader);
                                 break;
                         }
                     }
@@ -38,17 +40,7 @@ namespace CustomersReestr.Components.Controllers
             }
         }
 
-        private static void ImportCustomerString(DbDataReader reader)
-        {
-            string Name = reader.GetString(0);
-            string MiddleName = reader.GetString(1);
-            string LastName = reader.GetString(2);
-            string Sex = reader.GetString(3);
-            string Email = reader.GetString(4);
-            string Phone = reader.GetString(5);
-            DateTime BirthDate = DateHelper.ParseRusDateTime(reader.GetString(6));
-            
-            CustomerController.CreateNewCustomer(Name, MiddleName, LastName, Sex, Email, Phone, BirthDate);
-        }
+       
+        
     }
 }
