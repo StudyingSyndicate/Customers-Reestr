@@ -10,7 +10,7 @@
             <DataGrid x:Name="cusgrid" AutoGenerateColumns="false" ItemsSource="{Binding}" IsReadOnly="True"
                       AlternatingRowBackground="Gainsboro"  AlternationCount="2">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="№" Binding="{Binding Path=Id}" Width="150"/>
+                    <DataGridTextColumn Header="№" Binding="{Binding Path=Id}" Width="25" SortDirection="Descending"/>
                     <DataGridTextColumn Header="Дата регистрации" Binding="{Binding Path=RegDate, StringFormat=\{0:dd.MM.yyyy\}}" Width="150"/>
                     <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" Width="150"/>
                     <DataGridTextColumn Header="Имя" Binding="{Binding Path=Name}" Width="100"/>

@@ -8,7 +8,6 @@ using System.Data;
 using System.Windows.Data;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Data.Entity.Migrations;
 using System.Data.Common;
 using CustomersReestr.Components.Utils;
 
@@ -145,10 +144,8 @@ namespace CustomersReestr.Components.Controllers
                     db.Entry(customer).State = EntityState.Modified;
                     db.SaveChanges();
                 }
-
-
                 else
-                    CustomerController.CreateNewCustomer(Name, MiddleName, LastName, Sex, Email, Phone, BirthDate);
+                CustomerController.CreateNewCustomer(Name, MiddleName, LastName, Sex, Email, Phone, BirthDate);
             }
         }
     }

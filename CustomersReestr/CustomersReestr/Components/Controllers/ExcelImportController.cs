@@ -1,8 +1,5 @@
-﻿using CustomersReestr.Components.Models;
-using CustomersReestr.Components.Utils;
-using System;
+﻿using System;
 using System.Data.Common;
-using System.Data.Entity.Migrations;
 using System.Data.OleDb;
 
 namespace CustomersReestr.Components.Controllers
@@ -39,8 +36,5 @@ namespace CustomersReestr.Components.Controllers
                 connection.Close();
             }
         }
-
-       
-        
     }
 }
