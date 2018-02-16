@@ -8,8 +8,6 @@ using System.Data;
 using System.Windows.Data;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Data.Common;
-using CustomersReestr.Components.Utils;
 
 namespace CustomersReestr.Components.Controllers
 {
@@ -21,6 +19,7 @@ namespace CustomersReestr.Components.Controllers
             return GetCustomersInternal().ToList();
         }
 
+        [Obsolete("CreateNewCustomer is deprecated, please use SaveEntity instead.")]
         public static void CreateNewCustomer(string name, string middleName, string lastName, string sex, string email, string phone, DateTime birthDate)
         {
             SetInitializerDropDbOnModelChange();
@@ -37,21 +36,10 @@ namespace CustomersReestr.Components.Controllers
                 LastModified  = DateTime.Now
             };
 
-            using (CustomerContext db = new CustomerContext())
-            {
-                try
-                {
-                    db.Customers.Add(myNewCustomer);
-                    db.SaveChanges();
-                }
-                catch (DataException ex)
-                {
-                    MessageBox.Show("Произошла ошибка: " + ex.Message);
-                    throw;
-                }
-            }
+            SaveEntity(myNewCustomer);
         }
 
+        [Obsolete("SaveCustomer is deprecated, please use SaveEntity instead.")]
         public static void SaveCustomer(Customer customer)
         {
             using (CustomerContext db = new CustomerContext())
@@ -62,7 +50,6 @@ namespace CustomersReestr.Components.Controllers
                 db.Entry(customer).State = EntityState.Modified;
                 try
                 {
-                    
                     db.SaveChanges();
                 }
                 catch (DataException ex)
@@ -72,6 +59,44 @@ namespace CustomersReestr.Components.Controllers
                 }
             }
         }
+
+        public static Customer SaveEntity(Customer customer)
+        {
+            using (CustomerContext db = new CustomerContext())
+            {
+                if (customer.Id != 0)
+                {
+                    db.Customers.Attach(customer);
+                    db.Entry(customer).State = EntityState.Modified;
+                }
+                else
+                {
+                    customer.RegDate = DateTime.Now;
+                    customer.LastModified = DateTime.Now;
+
+                    db.Customers.Add(customer);
+                }
+
+                db.SaveChanges();
+            }
+            return customer;
+        }
+
+        public static Customer FindCustomerByGuid(string guidString)
+        {
+            Customer customer = null;
+
+            if (String.IsNullOrEmpty(guidString))
+                return customer;
+
+            Guid guid = Guid.Parse(guidString);
+            using (CustomerContext db = new CustomerContext())
+            {
+                customer = db.Customers.Find(guid);
+            }
+            return customer;
+        }
+
         public static ListCollectionView GetNotifications()
         {
             List<Customer> customersList = GetCustomersInternal().ToList();
@@ -112,41 +137,20 @@ namespace CustomersReestr.Components.Controllers
         }
 
         /// Убрать в продакшн коде
+        /// нужно для очищения таблицы при изменении в customers.cs
         private static void SetInitializerDropDbOnModelChange()
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<CustomerContext>());// строка нужна для очищения таблицы при изменении в customers.cs
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<CustomerContext>());
         }
 
         /// Убрать в продакшн коде
+        /// нужно для использования базы данных из гита, а не созданной приложением
         public static void InitDBSomething()
         {
             string relative = @"..\..\Customers.mdf";
             string absolute = Path.GetFullPath(relative);
             absolute = Path.GetDirectoryName(@absolute);
             AppDomain.CurrentDomain.SetData("DataDirectory", absolute);
-        }
-        public static void ImportCustomerString(DbDataReader reader)
-        {
-            string Name = reader.GetString(1);
-            string MiddleName = reader.GetString(2);
-            string LastName = reader.GetString(3);
-            string Sex = reader.GetString(4);
-            string Email = reader.GetString(5);
-            string Phone = reader.GetString(6);
-            DateTime BirthDate = DateHelper.ParseRusDateTime(reader.GetString(7));
-            Guid guid = Guid.Parse(reader.GetString(8));
-            using (CustomerContext db = new CustomerContext())
-            {
-                Customer customer = db.Customers.Find(guid);
-                if (customer != null)
-                {
-                    db.Customers.Attach(customer);
-                    db.Entry(customer).State = EntityState.Modified;
-                    db.SaveChanges();
-                }
-                else
-                CustomerController.CreateNewCustomer(Name, MiddleName, LastName, Sex, Email, Phone, BirthDate);
-            }
         }
     }
 }

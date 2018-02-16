@@ -23,43 +23,77 @@ namespace CustomersReestr.Components.Controllers
             string fileName = FileController.GetFileNameCurrentDateTime("xlsx");
 
             string fullPath = filepath + "\\" + fileName;
-            bool result = CreateExcelDocument(customersList, fullPath);
+
+            Dictionary<string, string> exportedFields = GetExportedFieldNamesMap();
+
+            bool result = CreateExcelDocument(customersList, fullPath, exportedFields);
 
             if (!result) throw new ArgumentException("", EXCEL_EXPORT_ERROR);
 
             return true;
         }
+        
+        private static Dictionary<string, string> GetExportedFieldNamesMap()
+        {
+            return new Dictionary<string, string>
+            {
+                {"Id",          "Id"},
+                {"Guid",        "Guid"},
+                {"Name",        "Имя"},
+                {"MiddleName",  "Отчество"},
+                {"LastName",    "Фамилия"},
+                {"Sex",         "Пол"},
+                {"Phone",       "Телефон"},
+                {"Email",       "Email"},
+                {"BirthDate",   "Дата рождения"},
+                {"RegDate",     "Дата регистрации"},
+            };
+        }
 
-        public static bool CreateExcelDocument<T>(List<T> list, string xlsxFilePath)
+        public static bool CreateExcelDocument<T>(List<T> list, string xlsxFilePath, Dictionary<string, string> exportedFields)
         {
             DataSet ds = new DataSet();
-            ds.Tables.Add(ListToDataTable(list));
+            ds.Tables.Add(ListToDataTable(list, exportedFields));
 
             return CreateExcelDocument(ds, xlsxFilePath);
         }
 
-        public static DataTable ListToDataTable<T>(List<T> list)
+        public static DataTable ListToDataTable<T>(List<T> list, Dictionary<string, string> exportedFields)
         {
             DataTable dt = new DataTable();
-
+            
             foreach (PropertyInfo info in typeof(T).GetProperties())
             {
-                dt.Columns.Add(new DataColumn(info.Name, GetNullableType(info.PropertyType)));
+                if (!exportedFields.ContainsKey(info.Name))
+                    continue;
+
+                if (!exportedFields.TryGetValue(info.Name, out string columnName))
+                    throw new ArgumentException("", EXCEL_EXPORT_ERROR);
+
+                dt.Columns.Add(new DataColumn(columnName, GetNullableType(info.PropertyType)));
             }
+
             foreach (T t in list)
             {
                 DataRow row = dt.NewRow();
                 foreach (PropertyInfo info in typeof(T).GetProperties())
                 {
+                    if (!exportedFields.ContainsKey(info.Name))
+                        continue;
+                    
+                    if (!exportedFields.TryGetValue(info.Name, out string columnName4Row))
+                        throw new ArgumentException("", EXCEL_EXPORT_ERROR);
+                    
                     if (!IsNullableType(info.PropertyType))
-                        row[info.Name] = info.GetValue(t, null);
+                        row[columnName4Row] = info.GetValue(t, null);
                     else
-                        row[info.Name] = (info.GetValue(t, null) ?? DBNull.Value);
+                        row[columnName4Row] = (info.GetValue(t, null) ?? DBNull.Value);
                 }
                 dt.Rows.Add(row);
             }
             return dt;
         }
+
         private static Type GetNullableType(Type t)
         {
             Type returnType = t;
@@ -69,6 +103,7 @@ namespace CustomersReestr.Components.Controllers
             }
             return returnType;
         }
+
         private static bool IsNullableType(Type type)
         {
             return (type == typeof(string) ||
@@ -76,6 +111,7 @@ namespace CustomersReestr.Components.Controllers
                     (type.IsGenericType &&
                      type.GetGenericTypeDefinition().Equals(typeof(Nullable<>))));
         }
+
         public static bool CreateExcelDocument(DataTable dt, string xlsxFilePath)
         {
             DataSet ds = new DataSet();
@@ -84,6 +120,7 @@ namespace CustomersReestr.Components.Controllers
             ds.Tables.Remove(dt);
             return result;
         }
+
         public static bool CreateExcelDocument(DataSet ds, string excelFilename)
         {
             try
@@ -102,6 +139,7 @@ namespace CustomersReestr.Components.Controllers
             }
 
         }
+
         private static void WriteExcelFile(DataSet ds, SpreadsheetDocument spreadsheet)
         {
             //  Create the Excel file contents.  This function is used when creating an Excel file either writing 
@@ -151,6 +189,7 @@ namespace CustomersReestr.Components.Controllers
 
             spreadsheet.WorkbookPart.Workbook.Save();
         }
+
         private static void WriteDataTableToExcelWorksheet(DataTable dt, WorksheetPart worksheetPart)
         {
             var worksheet = worksheetPart.Worksheet;

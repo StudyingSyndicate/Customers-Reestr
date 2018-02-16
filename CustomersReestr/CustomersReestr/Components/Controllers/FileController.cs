@@ -8,6 +8,9 @@ namespace CustomersReestr.Components.Controllers
     {
         public const string NULL_FOLDER_ERROR = "nullFolderError";
 
+        public const string EXCEL_FILEDIALOG_EXTENSION = "Файлы Excel (*.xls; *.xlsx) | *.xls; *.xlsx";
+        public const string DEFAULT_FILENAME = "Document";
+
         public static string GetFolderFromChooserDialog()
         {
             string result = null;

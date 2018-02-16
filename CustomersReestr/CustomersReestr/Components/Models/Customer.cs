@@ -3,17 +3,13 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CustomersReestr.Components.Models
-
-    /*тут задается структура нашей таблицы или таблиц
-     * можно прописать почти все, что создается в SQL*/
-
 {
    public class Customer
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //автогенерация ИД
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required] 
+        [Required]
         public string Name { get; set; }
 
         public string MiddleName { get; set; }
@@ -21,27 +17,28 @@ namespace CustomersReestr.Components.Models
         [Required]
         public string LastName { get; set; }
 
-        [Required] 
+        [Required]
+        [MaxLength(10)]
         public string Sex { get; set; }
-        
+
+        [MaxLength(30)]
         public string Email { get; set; }
 
-      
+        [MaxLength(30)]
         public string Phone { get; set; }
 
         [Required]
         public DateTime BirthDate { get; set; }
 
+        public DateTime RegDate { get; set; }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Guid { get; set; }
 
-        public DateTime RegDate { get; set; }
-        
+
         public DateTime LastModified { get; set; }
-
         
-
         [NotMapped]
         public string FullName {
             get {
