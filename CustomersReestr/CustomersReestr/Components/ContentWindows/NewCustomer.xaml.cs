@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Forms;
 using CustomersReestr.Components.Controllers;
+using CustomersReestr.Components.Models;
 
 namespace CustomersReestr
 {
@@ -39,14 +40,20 @@ namespace CustomersReestr
             }
             else
             {
-                CustomerController.CreateNewCustomer(
-                               Field_Name.Text,
-                               Field_MiddleName.Text,
-                               Field_LastName.Text,
-                               Field_Sex.Text,
-                               Field_Email.Text,
-                               Field_Phone.Text,
-                               Field_BirthDate.SelectedDate ?? DateTime.Now);
+                var myNewCustomer = new Customer
+                {
+                    Name = Field_Name.Text,
+                    MiddleName = Field_MiddleName.Text,
+                    LastName = Field_LastName.Text,
+                    Sex = Field_Sex.Text,
+                    Email = Field_Email.Text,
+                    Phone = Field_Phone.Text,
+                    BirthDate = Field_BirthDate.SelectedDate ?? DateTime.Now,
+                    RegDate = DateTime.Now,
+                    LastModified = DateTime.Now
+                };
+
+                CustomerController.SaveEntity(myNewCustomer);
                 ShowMessageAfterSave();
             }
         }

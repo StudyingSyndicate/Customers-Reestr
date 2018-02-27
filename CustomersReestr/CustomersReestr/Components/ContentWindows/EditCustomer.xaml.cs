@@ -90,7 +90,7 @@ namespace CustomersReestr
             else
             {
                 Customer customer = GetCustomer();
-                CustomerController.SaveCustomer(customer);
+                CustomerController.SaveEntity(customer);
 
                 ShowMessageAfterSave();
             }

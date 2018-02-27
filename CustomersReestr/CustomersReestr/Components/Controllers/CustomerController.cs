@@ -18,48 +18,7 @@ namespace CustomersReestr.Components.Controllers
             SetInitializerDropDbOnModelChange();
             return GetCustomersInternal().ToList();
         }
-
-        [Obsolete("CreateNewCustomer is deprecated, please use SaveEntity instead.")]
-        public static void CreateNewCustomer(string name, string middleName, string lastName, string sex, string email, string phone, DateTime birthDate)
-        {
-            SetInitializerDropDbOnModelChange();
-            var myNewCustomer = new Customer
-            {
-                Name = name,
-                MiddleName = middleName,
-                LastName = lastName,
-                Sex = sex,
-                Email = email,
-                Phone = phone,
-                BirthDate = birthDate,
-                RegDate = DateTime.Now,
-                LastModified  = DateTime.Now
-            };
-
-            SaveEntity(myNewCustomer);
-        }
-
-        [Obsolete("SaveCustomer is deprecated, please use SaveEntity instead.")]
-        public static void SaveCustomer(Customer customer)
-        {
-            using (CustomerContext db = new CustomerContext())
-            {
-                customer.LastModified = DateTime.Now;
-
-                db.Customers.Attach(customer);
-                db.Entry(customer).State = EntityState.Modified;
-                try
-                {
-                    db.SaveChanges();
-                }
-                catch (DataException ex)
-                {
-                    MessageBox.Show("Произошла ошибка: " + ex.Message);
-                    throw;
-                }
-            }
-        }
-
+             
         public static Customer SaveEntity(Customer customer)
         {
             using (CustomerContext db = new CustomerContext())
