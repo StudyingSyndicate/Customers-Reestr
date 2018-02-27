@@ -62,6 +62,7 @@
 
                             <DockPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left">
                                 <Button x:Name="EditBtn" Content="Редактировать" Width="100" Click="OnEditRow_ClickHandler"/>
+                                <Button x:Name="DelBtn" Content="Удалить" Width="100" Click="OnDelRow_ClickHandler"/>
                             </DockPanel>
                         </Grid>
                         

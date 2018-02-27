@@ -34,6 +34,17 @@ namespace CustomersReestr
             Field_BirthDate.SelectedDate = currentCustomer.BirthDate;
         }
 
+        private void DeleteCustomer (Customer customer)
+        {
+            string message = "Вы уверены,что хотите удалить клиента?";
+            DialogResult dialogResult = MessageBox.Show(message, "Информация", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                CustomerController.DeleteEntity(customer);
+                MessageBox.Show("Запись удалена");
+            }
+        }
+
         private Customer GetCustomer()
         {
             if (currentCustomer.Name != Field_Name.Text)
@@ -105,6 +116,13 @@ namespace CustomersReestr
             {
                 mainWindow.NavigateToCustomersGrid();
             }
+        }
+
+        private void OnDelBtnClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Customer customer = GetCustomer();
+            DeleteCustomer(customer);
+            mainWindow.NavigateToCustomersGrid();
         }
     }
 }

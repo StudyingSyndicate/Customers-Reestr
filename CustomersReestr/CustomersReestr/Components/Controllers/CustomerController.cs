@@ -18,7 +18,7 @@ namespace CustomersReestr.Components.Controllers
             SetInitializerDropDbOnModelChange();
             return GetCustomersInternal().ToList();
         }
-             
+
         public static Customer SaveEntity(Customer customer)
         {
             using (CustomerContext db = new CustomerContext())
@@ -74,7 +74,7 @@ namespace CustomersReestr.Components.Controllers
             db.Customers.Load();
 
             IQueryable<Customer> customers = from customer in db.Customers
-                                              select customer;
+                                             select customer;
 
             customers = SorCustomers(customers, sort);
 
@@ -111,5 +111,18 @@ namespace CustomersReestr.Components.Controllers
             absolute = Path.GetDirectoryName(@absolute);
             AppDomain.CurrentDomain.SetData("DataDirectory", absolute);
         }
+        public static void DeleteEntity(Customer customer)
+        {
+            using (CustomerContext db = new CustomerContext())
+            {
+                if (customer.Id != 0)
+                {
+                    db.Customers.Attach(customer);
+                    db.Customers.Remove(customer);
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }
+
